@@ -8,14 +8,16 @@ import {
   Heading,
 } from "../Styles/FooterStyles";
   
+
+/*<h1 style={{ color: "orange", 
+                  textAlign: "center", 
+                  marginTop: "-50px" }}>
+        Grawerowy.pl
+      </h1>*/
+
 const Footer = () => {
   return (
     <Box>
-      <h1 style={{ color: "orange", 
-                   textAlign: "center", 
-                   marginTop: "-50px" }}>
-        Grawerowy.pl
-      </h1>
       <Container>
         <Row>
           <Column>
