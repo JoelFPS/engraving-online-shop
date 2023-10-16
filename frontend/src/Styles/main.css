@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
 
 * {
 	padding: 0;
@@ -87,4 +88,21 @@ nav {
 	nav a {
 		font-size: 2rem;
 	}
+}
+
+h1{
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	margin-top: 1rem;
+}
+
+.productSection{
+	border: solid 1px black;
+	
+}
+
+.content{
+	align-items: center;
+	margin: 2rem;
+	
 }
