@@ -1,13 +1,15 @@
 const express = require("express");
+const errorHandler = require("./middleware/errorhandler");
+const productRoutes = require("./routes/productRoutes");
 const dotenv = require("dotenv").config();
 
 const app = express();
 
 const port = process.env.PORT || 5000;
 
-app.get("api/products", (req, res) => {
-    res.status(200).json({message: "Get all products" });
-});
+app.use(express.json());
+app.use("/api/products", productRoutes);
+app.use(errorHandler)
 
 app.listen(port, () => {
     console.log(`Server running on ${port}`);
