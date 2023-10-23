@@ -1,11 +1,13 @@
 const asyncHandler = require("express-async-handler");
+const Product = require("../models/productModel");
 
 //@desc Get all products
 //@route GET /api/products
 //@access public
 
 const getProducts = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: "Get all products" });
+    const products = await Product.find();
+    res.status(200).json(products);
 });
 
 //@desc Create new product
@@ -14,12 +16,18 @@ const getProducts = asyncHandler(async (req, res) => {
 
 const createProduct = asyncHandler(async (req, res) => {
     console.log("The request body is:", req.body);
-    const {name, src, description, price } = req.body;
+    const { name, src, description, price } = req.body;
     if(!name || !src || !description || !price) {
         res.status(400);
         throw new Error("All fields are mandatory!");
     }
-    res.status(201).json({ message: "Create product" });
+    const product = await Product.create({
+        name,
+        src,
+        description,
+        price
+    })
+    res.status(201).json(product);
 });
 
 //@desc Get product
@@ -27,7 +35,12 @@ const createProduct = asyncHandler(async (req, res) => {
 //@access public
 
 const getProduct = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: `Get product for ${req.params.id}` });
+    const product = await Product.findById(req.params.id);
+    if(!product) {
+        res.status(404);
+        throw new Error("Contact not found");
+    }
+    res.status(200).json(product);
 });
 
 //@desc Update product
