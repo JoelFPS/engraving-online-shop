@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&family=Raleway:wght@100&display=swap');
 
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: 'Sedgwick Ave Display', cursive;
+	font-family: 'Playpen Sans', cursive;
 }
 
 :root {
@@ -24,6 +25,12 @@ header {
 	background-color: var(--mainColor);
 	color: var(--textColor);
 	clear:both;
+}
+
+header h3{
+	font-family: 'Sedgwick Ave Display', cursive;
+	font-size: 150%;
+	cursor: pointer;
 }
 
 nav a {
@@ -105,4 +112,8 @@ h1{
 	align-items: center;
 	margin: 2rem;
 	
+}
+
+.content .productSection h1 {
+	cursor:default;
 }
