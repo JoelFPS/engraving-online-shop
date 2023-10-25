@@ -34,29 +34,69 @@ const createProduct = asyncHandler(async (req, res) => {
 //@route GET /api/products/:id
 //@access public
 
-const getProduct = asyncHandler(async (req, res) => {
-    const product = await Product.findById(req.params.id);
-    if(!product) {
+const getProduct = asyncHandler(async (req, res, next) => {
+    Product.findById(req.params.id).then(product => {
+        if(product == null) {
+            res.status(404);
+            res.locals.message = "Nie znaleziono";
+        } else {
+            res.status(200).json(product);
+        }
+    }).catch( err => {
         res.status(404);
-        throw new Error("Contact not found");
-    }
-    res.status(200).json(product);
+        res.locals.message = "Nie znaleziono";
+        res.locals.stacktrace = err.stacktrace;
+    }).finally( () => {
+        next();
+    });
 });
 
 //@desc Update product
 //@route PUT /api/products/:id
 //@access public
 
-const updateProduct = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: `Update product for ${req.params.id}` });
+const updateProduct = asyncHandler(async (req, res, next) => {
+    Product.findById(req.params.id).then( async product => {
+        if(product == null) {
+            res.status(404);
+            res.locals.message = "Nie znaleziono";
+        }
+
+        const updatedProduct = await Product.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+
+        res.status(200).json(updatedProduct);
+    }).catch( err => {
+        res.status(404);
+        res.locals.message = "Nie znaleziono";
+        res.locals.stacktrace = err.stacktrace;
+    }).finally( () => {
+        next();
+    });
 });
 
 //@desc Delete product
 //@route DELETE /api/products/:id
 //@access public
 
-const deleteProduct = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: `Delete product for ${req.params.id}` });
+const deleteProduct = asyncHandler(async (req, res, next) => {
+    Product.findById(req.params.id).then(async product => {
+        if(product == null) {
+            res.status(404);
+            res.locals.message = "Nie znaleziono";
+        }
+        await Product.findOneAndDelete();
+        res.status(200).json(product);
+    }).catch( err => {
+        res.status(404);
+        res.locals.message = "Nie znaleziono";
+        res.locals.stacktrace = err.stacktrace;
+    }).finally( () => {
+        next();
+    });
 });
 
 module.exports = { 
