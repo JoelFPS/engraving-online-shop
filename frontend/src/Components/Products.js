@@ -1,4 +1,4 @@
-import { FaShoppingCart, FaRegBookmark, FaStar, FaFireAlt } from 'react-icons/fa';
+import { FaShoppingCart, FaStar} from 'react-icons/fa';
 import "../Styles/productCard.css";
 
 export function Products(props) {

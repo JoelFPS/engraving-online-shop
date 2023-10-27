@@ -21,39 +21,29 @@ const Footer = () => {
       <Container>
         <Row>
           <Column>
-            <Heading>About Us</Heading>
-            <FooterLink href="#">Aim</FooterLink>
-            <FooterLink href="#">Vision</FooterLink>
-            <FooterLink href="#">Testimonials</FooterLink>
+            <Heading>O nas</Heading>
+            <FooterLink href="#">O firmie</FooterLink>
+            <FooterLink href="#">Technologia</FooterLink>
+            <FooterLink href="#">Sprzęt</FooterLink>
           </Column>
           <Column>
-            <Heading>Services</Heading>
-            <FooterLink href="#">Writing</FooterLink>
-            <FooterLink href="#">Internships</FooterLink>
-            <FooterLink href="#">Coding</FooterLink>
-            <FooterLink href="#">Teaching</FooterLink>
+            <Heading>Możliwości</Heading>
+            <FooterLink href="#">Grawerowanie</FooterLink>
+            <FooterLink href="#">Wycinanie laserowe</FooterLink>
           </Column>
           <Column>
-            <Heading>Contact Us</Heading>
-            <FooterLink href="#">e-mail</FooterLink>
-            <FooterLink href="#">telefon</FooterLink>
-            <FooterLink href="#">messenger</FooterLink>
+            <Heading>Kontakt</Heading>
+            <FooterLink href="#">E-mail</FooterLink>
+            <FooterLink href="#">Telefon</FooterLink>
+            <FooterLink href="#">Messenger</FooterLink>
           </Column>
           <Column>
             <Heading>Social Media</Heading>
-            <FooterLink href="#">
-              <i className="fab fa-facebook-f">
-                <span style={{ marginLeft: "10px" }}>
+            <FooterLink href="https://www.facebook.com/GrawerowyPL" target="_blank">
                   Facebook
-                </span>
-              </i>
             </FooterLink>
-            <FooterLink href="#">
-              <i className="fab fa-allegro">
-                <span style={{ marginLeft: "10px" }}>
+            <FooterLink href="https://allegro.pl/" target="_blank">
                   Allegro
-                </span>
-              </i>
             </FooterLink>
           </Column>
         </Row>
