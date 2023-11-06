@@ -2,12 +2,16 @@ import React from 'react';
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import { Products } from './Components/Products';
+import Product from './Components/Product';
 import contents from './content';
+import "./Styles/main.scss";
+
 
 function App() {
 	return (
 		<div className='App'>
 			<Navbar />
+			<Product />
 			<div className="content">
 				<div className="productSection">
 					<h1>Najczęściej kupowane</h1>

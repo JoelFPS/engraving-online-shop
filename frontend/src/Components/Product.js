@@ -1,8 +1,8 @@
 import React from 'react';
-import Colors from './cart-components/Colors'
+import Colors from './cart-components/Colors.js'
 import DetailsThumb from './cart-components/DetailsThumb.js';
 
-import "../Styles/cart.css";
+import "../Styles/product.scss";
 
 class Cart extends React.Component{
 

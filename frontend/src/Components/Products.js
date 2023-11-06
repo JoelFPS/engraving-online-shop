@@ -1,5 +1,5 @@
 import { FaShoppingCart, FaStar} from 'react-icons/fa';
-import "../Styles/productCard.css";
+import "../Styles/products.scss";
 
 export function Products(props) {
     return(

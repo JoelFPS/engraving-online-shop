@@ -1,0 +1,88 @@
+$mainColor: #523131;
+$mainColorLight: #5767aa;
+$secondaryColor: #a7a5a5;
+$textColor: #eee;
+
+.productList {
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 1rem;
+    clear:both;
+    width: 100%;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	justify-content: center;
+}
+
+.productCard {
+	position: relative;
+	margin: 0.5rem 3rem;
+	flex: 1 0 5rem;
+	max-width: 30rem;
+	max-height: 50rem;
+	transition: 0.2s;
+	cursor: pointer;
+	border: solid 1px black;
+}
+
+.productCard:hover {
+	transform: translateY(-0.5rem);
+	box-shadow: 0.5rem 0.75rem 1.5rem #bbbbbb;
+}
+
+.productImage {
+	margin-top: 0rem;
+	max-width: 100%;
+	height: auto;
+}
+
+.productCard__cart {
+	position: absolute;
+	right: 0;
+	margin-right: 3rem;
+	font-size: 1.25rem;
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.productCard__content {
+	margin: 2rem;
+}
+
+.productName {
+	font-size: 1rem;
+}
+
+.displayStack__1,
+.displayStack__2 {
+	margin: 1rem 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.productPrice {
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+h1{
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	margin-top: 1rem;
+}
+
+.productSection{
+	border: solid 1px black;
+	
+}
+
+.content{
+	align-items: center;
+	margin: 2rem;
+	
+}
+
+.content .productSection h1 {
+	cursor:default;
+}
