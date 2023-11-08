@@ -1,2 +1,13 @@
 https://www.youtube.com/watch?v=H9M02of22z4 - main backend
 https://www.smashingmagazine.com/2022/11/guide-test-driven-development-nodejs/ - tdd
+
+
+username
+adres
+totalPrice
+productName 
+{
+    quantity (of product)
+    details (of product) like color
+}
+

@@ -4,7 +4,7 @@ const connectDb = require("./config/dbConnection");
 const productRoutes = require("./routes/productRoutes");
 const dotenv = require("dotenv").config();
 
-connectDb();
+connectDb(process.env.CONNECTION_STRING);
 const app = express();
 
 const port = process.env.PORT || 5000;
