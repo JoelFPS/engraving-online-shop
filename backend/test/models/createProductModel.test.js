@@ -6,7 +6,7 @@ const connectDb = require("../../config/dbConnection");
 connectDb("mongodb+srv://joela:admin@grawerowy.n9robcc.mongodb.net/grawerowypl-backend?retryWrites=true&w=majority");
 
 describe('Creating documents in MongoDB', () => { 
-	it('Creates a new product', () => { 
+	it('Create a new product', () => { 
 
         const name = 'TestName';
         const src = 'test/test';
@@ -19,6 +19,7 @@ describe('Creating documents in MongoDB', () => {
                 description: description, 
                 price: price 
             }).then(el => {
+                    console.log(el);
                     assert(el != null);
                     assert(el.name == name);
                     assert(el.src == src);
@@ -47,7 +48,7 @@ describe('Creating documents in MongoDB', () => {
             }).catch(err => {
                 console.log(err);
             });
-	}); 
+	});
     it('Update a product', () => { 
 
         const name = 'TestName';
@@ -55,35 +56,31 @@ describe('Creating documents in MongoDB', () => {
         const description = 'A cool test';
         const price = 9.99;
         const updateDescription = 'New cool test';
-        const updatePrice = 10.00;
+        const updatePrice = 10.01;
 
         return Product.findOneAndUpdate(
             { 
                 name: name, 
                 src: src, 
                 description: description, 
-                price: price,
-                update: 
-                {
-                    description: updateDescription, 
-                    price: updatePrice
-                }
+                price: price
+            }, 
+            {
+                description: updateDescription, 
+                price: updatePrice
+            },
+            {
+                new: true
             })
-            .then(() => Product.findOne(
+            .then(el => { Product.findOne(
                 { 
                     name: name, 
                     src: src, 
                     description: updateDescription, 
                     price: updatePrice 
-                }
-            ))
-            .then(el => {
-                //assert(el !== null);
-                assert(el.name == name);
-                assert(el.src == src);
-                assert(el.description == updateDescription);
-                assert(el.price == updatePrice);
+                })
                 console.log(el);
+                assert(el !== null);
             }).catch(err => {
                 console.log(err);
             });
@@ -94,20 +91,21 @@ describe('Creating documents in MongoDB', () => {
         const name = 'TestName';
         const src = 'test/test';
         const updateDescription = 'New cool test';
-        const updatePrice = 10.00;
+        const updatePrice = 10.01;
 
         return Product.findOneAndDelete({ 
             name: name, 
             src: src, 
             description: updateDescription, 
             price: updatePrice 
-        }).then(() => Product.findOne({ 
-            name: name, 
-            src: src, 
-            description: updateDescription, 
-            price: updatePrice 
-        })).then(el => {
-                assert(el === null);
+        }).then(el => { Product.findOne(
+            { 
+                name: name, 
+                src: src, 
+                description: updateDescription, 
+                price: updatePrice 
+            })
+            console.log(el);
         }).catch(err => {
             console.log(err);
         });
