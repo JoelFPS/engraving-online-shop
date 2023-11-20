@@ -16,6 +16,10 @@ const productSchema = mongoose.Schema({
         price: {
             type: Number,
             required: [true, "Please add the product price"]
+        },
+        rating: {
+            type: Number,
+            required: [true, "Please add the product rating"]
         }
     },
     {

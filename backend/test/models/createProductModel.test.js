@@ -6,18 +6,22 @@ const connectDb = require("../../config/dbConnection");
 connectDb("mongodb+srv://joela:admin@grawerowy.n9robcc.mongodb.net/grawerowypl-backend?retryWrites=true&w=majority");
 
 describe('Creating documents in MongoDB', () => { 
+
+    const name = 'TestName';
+    const src = 'test/test';
+    const description = 'A cool test';
+    const price = 9.99;
+    const rating = 4;
+    const updateDescription = 'New cool test';
+    const updatePrice = 10.01;
+
 	it('Create a new product', () => { 
-
-        const name = 'TestName';
-        const src = 'test/test';
-        const description = 'A cool test';
-        const price = 9.99;
-
         return Product.create({ 
                 name: name, 
                 src: src, 
                 description: description, 
-                price: price 
+                price: price,
+                rating: rating
             }).then(el => {
                     console.log(el);
                     assert(el != null);
@@ -25,23 +29,19 @@ describe('Creating documents in MongoDB', () => {
                     assert(el.src == src);
                     assert(el.description == description);
                     assert(el.price == price);
+                    assert(el.rating == rating);
                     console.log(el);
             }).catch(err => {
                 console.log(err);
             });
 	}); 
     it('Get a product', () => { 
-
-        const name = 'TestName';
-        const src = 'test/test';
-        const description = 'A cool test';
-        const price = 9.99;
-
         return Product.findOne({ 
                 name: name, 
                 src: src, 
                 description: description, 
-                price: price 
+                price: price,
+                rating: rating
             }).then(el => {
                     assert(el != null);
                     console.log(el)
@@ -50,20 +50,13 @@ describe('Creating documents in MongoDB', () => {
             });
 	});
     it('Update a product', () => { 
-
-        const name = 'TestName';
-        const src = 'test/test';
-        const description = 'A cool test';
-        const price = 9.99;
-        const updateDescription = 'New cool test';
-        const updatePrice = 10.01;
-
         return Product.findOneAndUpdate(
             { 
                 name: name, 
                 src: src, 
                 description: description, 
-                price: price
+                price: price,
+                rating: rating
             }, 
             {
                 description: updateDescription, 
@@ -77,7 +70,8 @@ describe('Creating documents in MongoDB', () => {
                     name: name, 
                     src: src, 
                     description: updateDescription, 
-                    price: updatePrice 
+                    price: updatePrice,
+                    rating: rating
                 })
                 console.log(el);
                 assert(el !== null);
@@ -87,23 +81,19 @@ describe('Creating documents in MongoDB', () => {
         
 	}); 
     it('Delete a product', () => {
-
-        const name = 'TestName';
-        const src = 'test/test';
-        const updateDescription = 'New cool test';
-        const updatePrice = 10.01;
-
         return Product.findOneAndDelete({ 
             name: name, 
             src: src, 
             description: updateDescription, 
-            price: updatePrice 
+            price: updatePrice, 
+            rating: rating
         }).then(el => { Product.findOne(
             { 
                 name: name, 
                 src: src, 
                 description: updateDescription, 
-                price: updatePrice 
+                price: updatePrice,
+                rating: rating 
             })
             console.log(el);
         }).catch(err => {
