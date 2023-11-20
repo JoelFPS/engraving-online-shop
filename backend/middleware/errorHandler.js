@@ -33,7 +33,7 @@ const errorHandler = (req, res, next) => {
                 stackTrace: res.locals.stacktrace,
             });
         default:
-            console.log("No Error, All good!");
+            console.log("All good!");
             break;
     }
        
