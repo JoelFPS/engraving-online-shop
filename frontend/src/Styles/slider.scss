@@ -1,0 +1,19 @@
+/* Styles/slider.scss */
+.slider-container {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .slick-prev,
+  .slick-next {
+    font-size: 24px;
+    color: #000;
+  }
+  
+  .slick-prev {
+    left: -30px;
+  }
+  
+  .slick-next {
+    right: -30px;
+  }
