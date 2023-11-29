@@ -1,7 +1,3 @@
-https://www.youtube.com/watch?v=H9M02of22z4 - main backend
-https://www.smashingmagazine.com/2022/11/guide-test-driven-development-nodejs/ - tdd
-
-
 username
 adres
 totalPrice
@@ -11,3 +7,8 @@ productName
     details (of product) like color
 }
 
+Przesyłanie żądania z frontu do backendu:
+https://stackabuse.com/get-http-request-in-react/ - w reakcie
+
+view/productPage:
+Na podstawie przesłanego id szuka w bazie odpowiednich danych i wstawia je w odpowiednich miejscach do szablonu na tej stronie. 

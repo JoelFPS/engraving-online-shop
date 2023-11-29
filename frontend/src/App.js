@@ -1,14 +1,30 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import { Products } from './Components/Products';
 import Product from './Components/Product';
 import contents from './content';
-import Slider from './Components/Slider'
+import Slider from './Components/Slider';
 import "./Styles/main.scss";
 
+function App(){
 
-function App() {
+	const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+      axios
+         .get('http://localhost:5001/api/products')
+         .then((response) => {
+           // setPosts(response.data);
+		   console.log(response);
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+	}, []);
+
 	return (
 		<div className='App'>
 			<Navbar />

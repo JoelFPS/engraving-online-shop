@@ -4,9 +4,14 @@ const connectDb = require("./config/dbConnection");
 const productRoutes = require("./routes/productRoutes");
 const viewsRoutes = require("./routes/viewsRoutes");
 const dotenv = require("dotenv").config();
+const cors = require('cors');
 
 connectDb(process.env.CONNECTION_STRING);
 const app = express();
+app.use(cors({
+    "origin": "*",
+    "methods": "GET, HEAD, POST, PUT, PATCH, DELETE"
+}))
 
 const port = process.env.PORT || 5000;
 
