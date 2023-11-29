@@ -16,8 +16,8 @@ const getProducts = asyncHandler(async (req, res) => {
 
 const createProduct = asyncHandler(async (req, res) => {
     console.log("The request body is:", req.body);
-    const { name, src, description, price } = req.body;
-    if(!name || !src || !description || !price) {
+    const { name, src, description, price, rating } = req.body;
+    if(!name || !src || !description || isNaN(parseFloat(price)) || isNaN(parseFloat(rating))) {
         res.status(400);
         throw new Error("All fields are mandatory!");
     }
@@ -25,7 +25,8 @@ const createProduct = asyncHandler(async (req, res) => {
         name,
         src,
         description,
-        price
+        price,
+        rating
     })
     res.status(201).json(product);
 });

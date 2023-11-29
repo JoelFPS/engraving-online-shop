@@ -7,6 +7,7 @@ import { Products } from './Components/Products';
 import Product from './Components/Product';
 import contents from './content';
 import Slider from './Components/Slider';
+import { AddProductForm } from './Components/add-product/form.js'; //temporary
 import "./Styles/main.scss";
 
 function App(){
@@ -14,17 +15,16 @@ function App(){
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-      axios
-         .get('http://localhost:5001/api/products')
-         .then((response) => {
-           // setPosts(response.data);
-		   console.log(response);
-         })
-         .catch((err) => {
-            console.log(err);
-         });
+      	axios
+         	.get('http://localhost:5001/api/products')
+         	.then((response) => {
+           		setPosts(response.data);
+		   		console.log(response.data);
+         	})
+         	.catch((err) => {
+            	console.log(err);
+         	});
 	}, []);
-
 	return (
 		<div className='App'>
 			<Navbar />
@@ -55,6 +55,7 @@ function App(){
 					</div>
 				</div>
 			</div>
+			<AddProductForm />
 			<Footer />
 			
 		</div>
