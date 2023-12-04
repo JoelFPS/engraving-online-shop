@@ -8,16 +8,6 @@ export class AddProductForm extends Component {
     }
 
     reset() {
-        /*this.setState(state => {
-            console.log(state);
-            return {
-                name: "",
-                src: "",
-                description: "",
-                price: 0,
-                rating: 0
-            }
-        })*/
         this.state = {
             name: "",
             src: "",

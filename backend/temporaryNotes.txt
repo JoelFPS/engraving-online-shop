@@ -13,5 +13,10 @@ https://stackabuse.com/get-http-request-in-react/ - w reakcie
 view/productPage:
 Na podstawie przesłanego id szuka w bazie odpowiednich danych i wstawia je w odpowiednich miejscach do szablonu na tej stronie. 
 
-Potrzeba:
-* Strona do wstawiania rekordów do bazy
+Admin: 
+* wprowadzanie produktów do bazy ^
+* 
+
+User:
+* strona główna - wczytanie domyślnych produktów na stronę główną
+* strona produktu - wczytanie z bazy odpowiedniego produktu po id - metoda GET
