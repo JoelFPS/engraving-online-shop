@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react'
 import Colors from './cart-components/Colors.js'
 import DetailsThumb from './cart-components/DetailsThumb.js';
 
 import "../Styles/product.scss";
 
+
+
 class Cart extends React.Component{
+
+    getProduct() {
+        console.log(this.getState);
+        const requestOptions = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify( this.state )
+        }
+        fetch('http://localhost:5001/api/product/', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+    }
+    render() {
+        const {colors} = this.props;
+        return (
+            <div className='get'>
+                <h1>Pobieranie produktu z bazy</h1>
+                    <input type="text" value={this.state.name} onChange={evt => this.updateNameValue(evt)}/><br/>
+                    <input type="button" value="Pokaż" onClick={this.addProduct}></input>
+            </div>
+        )
+    }
 
     state = {
     products: [

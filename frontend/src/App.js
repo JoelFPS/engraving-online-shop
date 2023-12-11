@@ -8,6 +8,7 @@ import Product from './Components/Product';
 import contents from './content';
 import Slider from './Components/Slider';
 import { AddProductForm } from './Components/add-product/form.js'; //temporary
+import { GetProductForm } from './Components/add-product/showProd.js'; //temporary
 import "./Styles/main.scss";
 
 function App(){
@@ -56,6 +57,7 @@ function App(){
 				</div>
 			</div>
 			<AddProductForm />
+			<GetProductForm />
 			<Footer />
 			
 		</div>
