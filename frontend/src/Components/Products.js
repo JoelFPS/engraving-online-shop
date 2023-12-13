@@ -2,9 +2,9 @@ import { FaShoppingCart, FaStar} from 'react-icons/fa';
 import "../Styles/products.scss";
 
 export function Products(props) {
+    console.log('test')
     return(
-        
-            <div key={props.id} className='productCard'>
+            <div key={"a_"+props.id} className='productCard'>
                 <img src={props.image} alt='product-img' className='productImage'></img>
 
                 <div className='productCard__content'>
@@ -14,8 +14,8 @@ export function Products(props) {
                     </div>
                     <div className='displayStack__2'>
                         <div className='productRating'>
-                            {[...Array(props.rating)].map((index) => (
-                                <FaStar id={index + 1 } key={index} />
+                            {[...Array(props.rating)].map((val, idx) => (
+                                <FaStar className={(idx + 1) } key={props.id + "_c_" + idx } />
                             ))}
                             <FaShoppingCart className={"productCard__cart"} />
                         </div>

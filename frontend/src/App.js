@@ -12,9 +12,9 @@ import { GetProductForm } from './Components/add-product/showProd.js'; //tempora
 import "./Styles/main.scss";
 
 function App(){
-
 	const [posts, setPosts] = useState([]);
 
+	console.log('test')
 	useEffect(() => {
       	axios
          	.get('http://localhost:5001/api/products')
@@ -26,6 +26,9 @@ function App(){
             	console.log(err);
          	});
 	}, []);
+
+	console.log('contents');
+	console.log(contents)
 	return (
 		<div className='App'>
 			<Navbar />
@@ -44,13 +47,14 @@ function App(){
 						
 						{contents.map(contents => (
 								<Products 
-									key={contents.id}
+									id={contents.id}
 									image={contents.image}
 									name={contents.name}
 									price={contents.price}
 									totalSales={contents.totalSales}
 									timeLeft={contents.timeLeft}
 									rating={contents.rating}
+									key={"p_"+contents.id}
 								/>
 							))}
 					</div>
