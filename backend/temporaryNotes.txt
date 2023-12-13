@@ -20,3 +20,4 @@ Admin:
 User:
 * strona główna - wczytanie domyślnych produktów na stronę główną
 * strona produktu - wczytanie z bazy odpowiedniego produktu po id - metoda GET
+

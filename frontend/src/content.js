@@ -2,8 +2,7 @@ const productData = [
     {
       id: 1,
       name: "Koszyk1",
-      image:
-        "sample-pic.jpg",
+      image: "f/don.png",
       productType: "koszyk1",
       price: 220,
       rating: 5,
@@ -13,8 +12,7 @@ const productData = [
     {
       id: 2,
       name: "Koszyk2",
-      image:
-      "sample-pic.jpg",
+      image: "f/wot.png",
       productType: "koszyk2",
       price: 169,
       rating: 5,
@@ -24,8 +22,7 @@ const productData = [
     {
       id: 3,
       name: "Koszyk3",
-      image:
-      "sample-pic.jpg",
+      image: "f/reh.png",
       productType: "koszyk3",
       price: 170,
       rating: 4,
@@ -35,8 +32,7 @@ const productData = [
     {
       id: 4,
       name: "Koszyk3",
-      image:
-      "sample-pic.jpg",
+      image: "f/ter.png",
       productType: "koszyk3",
       price: 170,
       rating: 4,
