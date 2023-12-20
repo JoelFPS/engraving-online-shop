@@ -11,6 +11,7 @@ import axios from 'axios';
 let tryAgain = true;
 
 const SliderComponent = () => {
+    console.log('asd')
     const [productData, setProductData] = useState(null)
     const settings = {
         dots: true,

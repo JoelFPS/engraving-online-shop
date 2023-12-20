@@ -12,6 +12,7 @@ import { GetProductForm } from './Components/add-product/showProd.js'; //tempora
 import "./Styles/main.scss";
 
 function App(){
+	debugger;
 	const [posts, setPosts] = useState([]);
 
 	console.log('test')

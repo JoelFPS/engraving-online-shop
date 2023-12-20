@@ -1,8 +1,16 @@
 import { FaShoppingCart, FaStar} from 'react-icons/fa';
 import "../Styles/products.scss";
 
+import { useRef, useEffect } from 'react';
+const effectRan = useRef(false);
+
 export function Products(props) {
-    console.log('test')
+    useEffect(() => {
+        if (!effectRan.current) {
+            console.log("effect applied - only on the FIRST mount");
+        }
+    })
+
     return(
             <div key={"a_"+props.id} className='productCard'>
                 <img src={props.image} alt='product-img' className='productImage'></img>
