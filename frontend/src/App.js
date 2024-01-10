@@ -5,6 +5,8 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import { Products } from './Components/Products';
 import Product from './Components/Product';
+import Swiper from './Components/Swiper';
+import List from './Components/List';
 import contents from './content';
 import Slider from './Components/Slider';
 import { AddProductForm } from './Components/add-product/form.js'; //temporary
@@ -12,7 +14,7 @@ import { GetProductForm } from './Components/add-product/showProd.js'; //tempora
 import "./Styles/main.scss";
 
 function App(){
-	debugger;
+	//debugger;
 	const [posts, setPosts] = useState([]);
 
 	console.log('test')
@@ -38,7 +40,8 @@ function App(){
 			<div className="content">
 				<div className="productSection">
 					<h1>Najczęściej kupowane</h1>
-					<Slider />
+					{/*<Slider />*/}
+					<Swiper />
 				</div>
 			</div>
 			<div className="content">
@@ -57,10 +60,11 @@ function App(){
 									rating={contents.rating}
 									key={"p_"+contents.id}
 								/>
-							))}
+								))}
 					</div>
 				</div>
 			</div>
+			<List />
 			<AddProductForm />
 			<GetProductForm />
 			<Footer />

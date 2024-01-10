@@ -21,44 +21,12 @@ const SliderComponent = () => {
         slidesToScroll: 1,
     };
 
-    /*this.useState ({
-        productData: null
-    })*/
-
-function getProduct() {
-    console.log("getProduct()");
-    const requestOptions = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-    };
-
-    const tableId = [
-        "656db87f6969bb7bd4bf73ef",
-        "656dbb3f6969bb7bd4bf73f1",
-        "656dbb536969bb7bd4bf73f3",
-        "656dbb6e6969bb7bd4bf73f5"
-    ];
-
-    fetch(`http://localhost:5001/api/products/${tableId[1]}`, requestOptions)
-        .then(response => response.json())
-        .then(data => {
-            setProductData(
-                [data]
-            );
-        })
-        .catch(error => {
-            console.error('Error fetching product:', error);
-        });
-}
-
-//getProduct();
-
 useEffect(() => {
     axios
-       .get('http://localhost:5001/api/products/656dbb3f6969bb7bd4bf73f1')
+       .get('http://localhost:5001/api/products/656db87f6969bb7bd4bf73ef')
        .then((response) => {
              setProductData(
-                [response]
+                [response.data]
              );
        })
        .catch((err) => {
@@ -72,7 +40,7 @@ return (
         <Slider {...settings}>
             {productData && productData.map(contents => (
                     <Products 
-                        key={contents.id}
+                        key={"id_"+contents.id}
                         image={"f/"+contents.src}
                         name={contents.name}
                         price={contents.price}
