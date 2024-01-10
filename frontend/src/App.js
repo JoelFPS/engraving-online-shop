@@ -1,8 +1,10 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
+import Layout from "./Components/Layout.js";
+import Home from "./Components/Home.js";
+import AllTypes from "./Components/AllTypes.js";
 import { Products } from './Components/Products';
 import Product from './Components/Product';
 import Swiper from './Components/Swiper';
@@ -29,46 +31,17 @@ function App(){
             	console.log(err);
          	});
 	}, []);
-
-	console.log('contents');
-	console.log(contents)
 	return (
 		<div className='App'>
-			<Navbar />
-			{/*<Product />*/}
-			
-			<div className="content">
-				<div className="productSection">
-					<h1>Najczęściej kupowane</h1>
-					{/*<Slider />*/}
-					<Swiper />
-				</div>
-			</div>
-			<div className="content">
-				<div className="productSection">
-					<h1>Najczęściej kupowane</h1>
-					<div className='productList'>
-						
-						{contents.map(contents => (
-								<Products 
-									id={contents.id}
-									image={contents.image}
-									name={contents.name}
-									price={contents.price}
-									totalSales={contents.totalSales}
-									timeLeft={contents.timeLeft}
-									rating={contents.rating}
-									key={"p_"+contents.id}
-								/>
-								))}
-					</div>
-				</div>
-			</div>
-			<List />
-			<AddProductForm />
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Layout />}>
+						<Route index element={<Home />} />
+						<Route path="alltypes" element={<AllTypes />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
 			<GetProductForm />
-			<Footer />
-			
 		</div>
 	);
 }
