@@ -5,6 +5,10 @@ const productSchema = mongoose.Schema({
             type: String,
             required: [true, "Please add the product name"]
         },
+        category: {
+            type: String,
+            required: [true, "Please add the product name"]
+        },
         src: {
             type: String,
             required: [true, "Please add the product image src"]

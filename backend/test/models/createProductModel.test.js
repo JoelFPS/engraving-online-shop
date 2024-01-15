@@ -8,6 +8,7 @@ connectDb("mongodb+srv://joela:admin@grawerowy.n9robcc.mongodb.net/grawerowypl-b
 describe('Creating documents in MongoDB', () => { 
 
     const name = 'TestName';
+    const category = 'pen';
     const src = 'test/test';
     const description = 'A cool test';
     const price = 9.99;
@@ -17,7 +18,8 @@ describe('Creating documents in MongoDB', () => {
 
 	it('Create a new product', () => { 
         return Product.create({ 
-                name: name, 
+                name: name,
+                category: category, 
                 src: src, 
                 description: description, 
                 price: price,
@@ -26,6 +28,7 @@ describe('Creating documents in MongoDB', () => {
                     console.log(el);
                     assert(el != null);
                     assert(el.name == name);
+                    assert(e.category == category);
                     assert(el.src == src);
                     assert(el.description == description);
                     assert(el.price == price);
@@ -38,6 +41,7 @@ describe('Creating documents in MongoDB', () => {
     it('Get a product', () => { 
         return Product.findOne({ 
                 name: name, 
+                category: category,
                 src: src, 
                 description: description, 
                 price: price,
@@ -54,6 +58,7 @@ describe('Creating documents in MongoDB', () => {
             { 
                 name: name, 
                 src: src, 
+                category: category,
                 description: description, 
                 price: price,
                 rating: rating
@@ -68,6 +73,7 @@ describe('Creating documents in MongoDB', () => {
             .then(el => { Product.findOne(
                 { 
                     name: name, 
+                    category: category,
                     src: src, 
                     description: updateDescription, 
                     price: updatePrice,
@@ -82,7 +88,8 @@ describe('Creating documents in MongoDB', () => {
 	}); 
     it('Delete a product', () => {
         return Product.findOneAndDelete({ 
-            name: name, 
+            name: name,
+            category: category, 
             src: src, 
             description: updateDescription, 
             price: updatePrice, 
@@ -91,6 +98,7 @@ describe('Creating documents in MongoDB', () => {
             { 
                 name: name, 
                 src: src, 
+                category: category,
                 description: updateDescription, 
                 price: updatePrice,
                 rating: rating 
