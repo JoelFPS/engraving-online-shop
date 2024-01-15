@@ -9,6 +9,7 @@ import Gifts from "./Components/Gifts.js";
 import Pens from "./Components/Pens.js";
 import Knifes from "./Components/Knifes.js";
 import AboutUs from "./Components/AboutUs.js";
+import Test from "./Components/Test.js";
 
 import "./Styles/main.scss";
 
@@ -38,6 +39,7 @@ function App(){
 						<Route path="pens" element={<Pens />} />
 						<Route path="knifes" element={<Knifes />} />
 						<Route path="about-us" element={<AboutUs />} />
+						<Route path="test" element={<Test />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

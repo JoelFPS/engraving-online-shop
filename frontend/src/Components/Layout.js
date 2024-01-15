@@ -44,9 +44,6 @@ export default Layout;
 								))}
 					</div>
 				</div>
-
-<AddProductForm />
-<GetProductForm />
 <Footer />
 
 */

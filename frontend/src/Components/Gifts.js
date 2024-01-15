@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../Styles/main.scss";
+import { GetAllProducts } from './Elements/GetAllProducts';
 
 function Gifts(){
 	//debugger;
@@ -14,15 +15,16 @@ function Gifts(){
 		        console.log(response.data);
             })
             .catch((err) => {
-            	console.log(err);
+            	console.log(err); 
             });
 	}, []);
 	return (
 		<div className='App'>
 			<div className="content">
 				<div className="productSection">
-					<h1>Najczęściej kupowane</h1>
+					<h1>Wszystkie produkty</h1>
 					<div className='productList'>
+						<GetAllProducts />
 					</div>
 				</div>
 			</div>

@@ -22,6 +22,7 @@ function Navbar() {
 				<Link to="/pens">Długopisy</Link>
 				<Link to="/knifes">Noże</Link>
 				<Link to="/about-us">O nas</Link>
+				<Link to="/test">Testy</Link>
 				<a to="/"><FaShoppingCart className={"productCard_nav_cart"} /></a>
 				<FaShoppingCart className={"productCard_nav_cart2"} />
 				

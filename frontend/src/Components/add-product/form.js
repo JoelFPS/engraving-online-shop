@@ -36,12 +36,12 @@ export class AddProductForm extends Component {
         return (
             <div className='add'>
                 <h1>Wprowadzanie danych do bazy</h1>
-                    <input type="text" value={this.state.name} onChange={evt => this.updateNameValue(evt)}/><br/>
-                    <input type="text" value={this.state.category} onChange={evt => this.updateCategoryValue(evt)}/><br/>
-                    <input type="text" value={this.state.src} onChange={evt => this.updateSrcValue(evt)}/><br/>
-                    <input type="text" value={this.state.description} onChange={evt => this.updateDescriptionValue(evt)}/><br/>
-                    <input type="number" value={this.state.price} onChange={evt => this.updatePriceValue(evt)}/><br/>
-                    <input type="number" value={this.state.rating} onChange={evt => this.updateRatingValue(evt)}/><br/>
+                    <input type="text" placeholder="nazwa" value={this.state.name} onChange={evt => this.updateNameValue(evt)}/><br/>
+                    <input type="text" placeholder="kategoria" value={this.state.category} onChange={evt => this.updateCategoryValue(evt)}/><br/>
+                    <input type="text" placeholder="src" value={this.state.src} onChange={evt => this.updateSrcValue(evt)}/><br/>
+                    <input type="text" placeholder="opis" value={this.state.description} onChange={evt => this.updateDescriptionValue(evt)}/><br/>
+                    <input type="number" value={this.state.price} onChange={evt => this.updatePriceValue(evt)}/> zł<br/>
+                    <input type="number" value={this.state.rating} onChange={evt => this.updateRatingValue(evt)}/> *<br/>
                     <input type="button" value="Wprowadź dane" onClick={this.addProduct}></input>
             </div>
         )
