@@ -2,17 +2,14 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import Layout from "./Components/Layout.js";
 import Home from "./Components/Home.js";
-import AllTypes from "./Components/AllTypes.js";
-import { Products } from './Components/Products';
-import Product from './Components/Product';
-import Swiper from './Components/Swiper';
-import List from './Components/List';
-import contents from './content';
-import Slider from './Components/Slider';
-import { AddProductForm } from './Components/add-product/form.js'; //temporary
-import { GetProductForm } from './Components/add-product/showProd.js'; //temporary
+import Gifts from "./Components/Gifts.js";
+import Pens from "./Components/Pens.js";
+import Knifes from "./Components/Knifes.js";
+import AboutUs from "./Components/AboutUs.js";
+
 import "./Styles/main.scss";
 
 function App(){
@@ -37,7 +34,10 @@ function App(){
 				<Routes>
 					<Route path="/" element={<Layout />}>
 						<Route index element={<Home />} />
-						<Route path="alltypes" element={<AllTypes />} />
+						<Route path="gifts" element={<Gifts />} />
+						<Route path="pens" element={<Pens />} />
+						<Route path="knifes" element={<Knifes />} />
+						<Route path="about-us" element={<AboutUs />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

@@ -1,5 +1,5 @@
 import { FaShoppingCart, FaStar} from 'react-icons/fa';
-import "../Styles/products.scss";
+import "../../Styles/products.scss";
 import { useRef, useEffect } from 'react';
 
 

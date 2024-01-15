@@ -1,4 +1,19 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Navbar from "./Elements/Navbar";
+import Footer from "./Elements/Footer";
+
+const Layout = () => {
+	return (
+	<>
+    	<Navbar />
+    	<Outlet />
+		<Footer />
+    </>
+	)
+};
+
+export default Layout;
+
 /*
 		<div className='App'>
 			<Navbar />
@@ -35,28 +50,3 @@ import { Outlet, Link } from "react-router-dom";
 <Footer />
 
 */
-
-
-const Layout = () => {
-  return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/blogs">Blogs</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <Outlet />
-    </>
-  )
-};
-
-export default Layout;

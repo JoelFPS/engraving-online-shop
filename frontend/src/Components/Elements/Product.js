@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Colors from './cart-components/Colors.js'
-import DetailsThumb from './cart-components/DetailsThumb.js';
+import Colors from '../cart-components/Colors.js'
+import DetailsThumb from '../cart-components/DetailsThumb.js';
 
-import "../Styles/product.scss";
+import "../../Styles/product.scss";
 
 
 
@@ -22,7 +22,6 @@ class Cart extends React.Component{
             });
     }
     render() {
-        const {colors} = this.props;
         return (
             <div className='get'>
                 <h1>Pobieranie produktu z bazy</h1>

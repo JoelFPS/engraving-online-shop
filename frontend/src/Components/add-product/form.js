@@ -10,6 +10,7 @@ export class AddProductForm extends Component {
     reset() {
         this.state = {
             name: "",
+            category: "",
             src: "",
             description: "",
             price: 0,
@@ -32,11 +33,11 @@ export class AddProductForm extends Component {
 
     }
     render() {
-        const {colors} = this.props;
         return (
             <div className='add'>
                 <h1>Wprowadzanie danych do bazy</h1>
                     <input type="text" value={this.state.name} onChange={evt => this.updateNameValue(evt)}/><br/>
+                    <input type="text" value={this.state.category} onChange={evt => this.updateCategoryValue(evt)}/><br/>
                     <input type="text" value={this.state.src} onChange={evt => this.updateSrcValue(evt)}/><br/>
                     <input type="text" value={this.state.description} onChange={evt => this.updateDescriptionValue(evt)}/><br/>
                     <input type="number" value={this.state.price} onChange={evt => this.updatePriceValue(evt)}/><br/>
@@ -50,6 +51,12 @@ export class AddProductForm extends Component {
         const val = evt.target.value;
         this.setState({
             name: val,
+        })
+    }
+    updateCategoryValue(evt) {
+        const val = evt.target.value;
+        this.setState({
+            category: val,
         })
     }
     updateSrcValue(evt) {
@@ -78,4 +85,4 @@ export class AddProductForm extends Component {
     }
 }
 
-export default AddProductForm
+export default AddProductForm;

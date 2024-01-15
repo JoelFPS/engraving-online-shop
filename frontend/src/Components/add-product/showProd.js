@@ -40,6 +40,7 @@ export class GetProductForm extends Component {
                     <div>
                         <h2>Dane produktu:</h2>
                         <p>Name: {this.state.productData.name}</p>
+                        <p>Category: {this.state.productData.category}</p>
                         <p>Src: {this.state.productData.src}</p>
                         <p>Description: {this.state.productData.description}</p>
                         <p>Price: {this.state.productData.price}</p>
