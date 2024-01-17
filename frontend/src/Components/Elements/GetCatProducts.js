@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FaStar, FaShoppingCart } from 'react-icons/fa';
 import "../../Styles/products.scss";
 
-export class GetAllProducts extends Component {
+export class GetCatProducts extends Component {
     constructor() {
         super();
         this.state = {
@@ -16,6 +16,7 @@ export class GetAllProducts extends Component {
     }
 
     getProducts() {
+        const { category } = this.props; //pobieranie kategorii
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -24,8 +25,9 @@ export class GetAllProducts extends Component {
         fetch(`http://localhost:5001/api/products`, requestOptions)
             .then(response => response.json())
             .then(data => {
+                const filteredProducts = data.filter(product => product.category === category); //filtrowanie kategorii
                 this.setState({
-                    productData: data
+                    productData: filteredProducts
                 });
             })
             .catch(error => {
@@ -36,8 +38,6 @@ export class GetAllProducts extends Component {
     render() {
         return (
             <div className='get'>
-
-
                 {this.state.productData && (
                     <div>
                         {this.state.productData.map(product => (
@@ -67,4 +67,4 @@ export class GetAllProducts extends Component {
     }
 }
 
-export default GetAllProducts;
+export default GetCatProducts;
