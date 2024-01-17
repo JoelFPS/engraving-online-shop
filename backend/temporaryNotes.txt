@@ -21,34 +21,12 @@ User:
 * strona główna - wczytanie domyślnych produktów na stronę główną
 * strona produktu - wczytanie z bazy odpowiedniego produktu po id - metoda GET
 
-    /*this.useState ({
-        productData: null
-    })*/
+Do zrobienia:
+- wyśrodkować rekordy wyświetlane na stronie prezenty, długopisy i noże (pamiętać o odpowiedniej rozdzielczości obrazów)
+- osiągnąć 5 rekordów penów i knifów
+- zrobić stronę o nas z nałgłówkami ze stopki
+- zrobić na sztywno rekordy w home
 
-function getProduct() {
-    console.log("getProduct()");
-    const requestOptions = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-    };
+-----
 
-    const tableId = [
-        "656db87f6969bb7bd4bf73ef",
-        "656dbb3f6969bb7bd4bf73f1",
-        "656dbb536969bb7bd4bf73f3",
-        "656dbb6e6969bb7bd4bf73f5"
-    ];
-
-    fetch(`http://localhost:5001/api/products/${tableId[1]}`, requestOptions)
-        .then(response => response.json())
-        .then(data => {
-            setProductData(
-                [data]
-            );
-        })
-        .catch(error => {
-            console.error('Error fetching product:', error);
-        });
-}
-
-//getProduct();
+- opracować stronę poszczególnych produktów
