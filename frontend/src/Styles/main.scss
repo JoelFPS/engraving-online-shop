@@ -9,6 +9,11 @@
 	font-family: 'Playpen Sans', cursive;
 }
 
+.productList,.productSection {
+	justify-content: center;
+	margin: auto;
+}
+
 $mainColor: #523131;
 $mainColorLight: #5767aa;
 $secondaryColor: #ccbbbb;
