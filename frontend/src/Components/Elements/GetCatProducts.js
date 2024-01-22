@@ -42,7 +42,7 @@ export class GetCatProducts extends Component {
                     <div>
                         {this.state.productData.map(product => (
                             <div key={"a_" + product.id} className='productCard'>
-                                <img src={"f/"+product.src} alt='product-img' className='productImage'></img>
+                                <img src={product.category+"/"+product.src} alt='product-img' className='productImage'></img>
 
                                 <div className='productCard__content'>
                                     <div className='displayStack__1'>

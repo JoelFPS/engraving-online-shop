@@ -33,7 +33,7 @@ export class GetProductForm extends Component {
             <div className='get'>
                 <h1>Pobieranie danych z bazy</h1>
                 <label>Podaj ID produktu: </label>
-                <input type="text" value={this.state.productId} onChange={evt => this.updateProductIdValue(evt)} />
+                <input type="text" value={this.state.productId} onChange={evt => this.ShowProductIdValue(evt)} />
                 <input type="button" value="Pobierz dane" onClick={this.getProduct} />
 
                 {this.state.productData && (
@@ -51,7 +51,7 @@ export class GetProductForm extends Component {
         );
     }
 
-    updateProductIdValue(evt) {
+    ShowProductIdValue(evt) {
         const val = evt.target.value;
         this.setState({
             productId: val,
@@ -60,4 +60,4 @@ export class GetProductForm extends Component {
     }
 }
 
-export default GetProductForm
+export default GetProductForm;
