@@ -80,7 +80,7 @@ const updateProduct = asyncHandler(async (req, res, next) => {
     });
 });
 
-//@desc Delete product
+//@desc Delete product by id
 //@route DELETE /api/products/:id
 //@access public
 
@@ -106,5 +106,5 @@ module.exports = {
     createProduct, 
     getProduct, 
     updateProduct, 
-    deleteProduct 
+    deleteProduct,
 };
