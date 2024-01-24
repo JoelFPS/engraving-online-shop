@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { GetOneProduct } from './Elements/GetOneProduct';
+import { GetOneProduct } from '../Elements/GetOneProduct';
 
-function Home()
+function ProductPage()
 {
     //debugger;
 	const [setPosts] = useState([]);
@@ -41,4 +41,4 @@ function Home()
 	);
 }
 
-export default Home;
+export default ProductPage;

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Layout from "./Components/Layout.js";
+import LayoutMain from "./Components/LayoutMain.js";
 import Home from "./Components/Home.js";
 import Gifts from "./Components/Gifts.js";
 import Pens from "./Components/Pens.js";
@@ -33,7 +33,7 @@ function App(){
 		<div className='App'>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<Layout />}>
+					<Route path="/" element={<LayoutMain />}>
 						<Route index element={<Home />} />
 						<Route path="gifts" element={<Gifts />} />
 						<Route path="pens" element={<Pens />} />

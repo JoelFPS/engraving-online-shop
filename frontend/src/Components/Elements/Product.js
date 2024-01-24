@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Colors from '../cart-components/Colors.js'
-import DetailsThumb from '../cart-components/DetailsThumb.js';
 
 import "../../Styles/product.scss";
 
@@ -84,12 +82,10 @@ class Cart extends React.Component{
                     <h2>{item.title}</h2>
                     <span>{item.price}zł</span>
                 </div>
-                <Colors colors={item.colors} />
 
                 <p>{item.description}</p>
                 <p>{item.content}</p>
 
-                <DetailsThumb images={item.src} tab={this.handleTab} myRef={this.myRef} />
                 <button className="cart">Dodaj do koszyka</button>
 
                 </div>

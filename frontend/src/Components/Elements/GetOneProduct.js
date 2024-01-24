@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Link, Route, Switch } from "react-router-dom";
 import { FaStar, FaShoppingCart } from 'react-icons/fa';
-import ProductPage from '../Products-pages/ProductPage';
 import "../../Styles/products.scss";
 
-export class GetCatProducts extends Component {
+export class GetOneProduct extends Component {
     constructor() {
         super();
         this.state = {
@@ -18,8 +16,7 @@ export class GetCatProducts extends Component {
     }
 
     getProducts() {
-        const { category } = this.props; //pobieranie kategorii
-        //const productLink = "./product/"+product.src;
+        const { name } = this.props; //pobieranie nazwy
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -28,7 +25,7 @@ export class GetCatProducts extends Component {
         fetch(`http://localhost:5001/api/products`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                const filteredProducts = data.filter(product => product.category === category); //filtrowanie kategorii
+                const filteredProducts = data.filter(product => product.name === name); //filtrowanie po nazwie
                 this.setState({
                     productData: filteredProducts
                 });
@@ -44,7 +41,6 @@ export class GetCatProducts extends Component {
                 {this.state.productData && (
                     <div>
                         {this.state.productData.map(product => (
-                            <Link to={"./" + product.src}>
                             <div key={"a_" + product.id} className='productCard'>
                                 <div className='imageBlock'>
                                     <img src={product.category+"/"+product.src+".png"} alt='product-img' className='productImage'></img>
@@ -64,26 +60,12 @@ export class GetCatProducts extends Component {
                                     </div>
                                 </div>
                             </div>
-                            </Link>
-                            
                         ))}
                     </div>
                 )}
-                <Switch>
-                    <Route
-                    path={"/"+product.category+"/"+product.src}
-                    render={({ match }) => (
-                        <ProductPage
-                        product={products.find(
-                            (product) => String(product.src) === match.params.src
-                        )}
-                        />
-                    )}
-                    />
-                </Switch>
             </div>
         );
     }
 }
 
-export default GetCatProducts;
+export default GetOneProduct;

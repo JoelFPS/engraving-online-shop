@@ -43,7 +43,7 @@ export class GetAllProducts extends Component {
                         {this.state.productData.map(product => (
                             <div key={"a_" + product.id} className='productCard'>
                                 <div className='imageBlock'>
-                                    <img src={product.category+"/"+product.src} alt='product-img' className='productImage'></img>
+                                    <img src={product.category+"/"+product.src+".png"} alt='product-img' className='productImage'></img>
                                 </div>
                                 <div className='productCard__content'>
                                     <div className='displayStack__1'>
