@@ -23,7 +23,7 @@ export class GetOneProduct extends Component {
         };
 
         fetch(`http://localhost:5001/api/products`, requestOptions)
-            .then(response => response.json())
+            .then(response => response.json())  
             .then(data => {
                 const filteredProducts = data.filter(product => product.name === name); //filtrowanie po nazwie
                 this.setState({

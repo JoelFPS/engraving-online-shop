@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Link, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaStar, FaShoppingCart } from 'react-icons/fa';
-import ProductPage from '../Products-pages/ProductPage';
 import "../../Styles/products.scss";
 
 export class GetCatProducts extends Component {
@@ -69,7 +68,7 @@ export class GetCatProducts extends Component {
                         ))}
                     </div>
                 )}
-                <Switch>
+             {/*   <Switch>
                     <Route
                     path={"/"+product.category+"/"+product.src}
                     render={({ match }) => (
@@ -80,8 +79,8 @@ export class GetCatProducts extends Component {
                         />
                     )}
                     />
-                </Switch>
-            </div>
+                        </Switch> */}
+                        </div>
         );
     }
 }
