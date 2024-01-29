@@ -43,8 +43,8 @@ export class GetCatProducts extends Component {
                 {this.state.productData && (
                     <div className='grid'>
                         {this.state.productData.map(product => (
-                            <Link to={"./" + product.src}>
-                            <div key={"a_" + product.id} className='productCard'>
+                            <Link to={"./"+product._id}>
+                            <div key={"a_" + product._id} className='productCard'>
                                 <div className='imageBlock'>
                                     <img src={product.category+"/"+product.src+".png"} alt='product-img' className='productImage'></img>
                                 </div>
@@ -56,7 +56,7 @@ export class GetCatProducts extends Component {
                                     <div className='displayStack__2'>
                                         <div className='productRating'>
                                             {[...Array(product.rating)].map((val, idx) => (
-                                                <FaStar className={(idx + 1)} key={product.id + "_c_" + idx} />
+                                                <FaStar className={(idx + 1)} key={product._id + "_c_" + idx} />
                                             ))}
                                             <FaShoppingCart className={"productCard__cart"} />
                                         </div>
@@ -68,19 +68,7 @@ export class GetCatProducts extends Component {
                         ))}
                     </div>
                 )}
-             {/*   <Switch>
-                    <Route
-                    path={"/"+product.category+"/"+product.src}
-                    render={({ match }) => (
-                        <ProductPage
-                        product={products.find(
-                            (product) => String(product.src) === match.params.src
-                        )}
-                        />
-                    )}
-                    />
-                        </Switch> */}
-                        </div>
+            </div>
         );
     }
 }

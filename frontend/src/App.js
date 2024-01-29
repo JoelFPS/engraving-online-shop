@@ -12,6 +12,8 @@ import AboutUs from "./Components/AboutUs.js";
 import Test from "./Components/Test.js";
 import ShoppingCart from "./Components/ShoppingCart.js";
 
+import Pen from "./Components/Products-pages/Pen.js"
+
 import "./Styles/main.scss";
 
 function App(){
@@ -37,7 +39,9 @@ function App(){
 					<Route path="/" element={<LayoutMain />}>
 						<Route index element={<Home />} />
 						<Route path="gifts" element={<Gifts />} />
-						<Route path="pens" element={<Pens />} />
+						<Route path="pens" element={<Pens />} >
+							<Route path=":penId" element={<Pen />} />
+						</Route>
 						<Route path="knifes" element={<Knifes />} />
 						<Route path="about-us" element={<AboutUs />} />
 						<Route path="test" element={<Test />} />
