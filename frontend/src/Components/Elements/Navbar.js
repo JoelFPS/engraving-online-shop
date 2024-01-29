@@ -17,14 +17,14 @@ function Navbar() {
 		<header>
 			<h3>Grawerowy.pl</h3>
 			<nav ref={navRef}>
-				<Link to="/">Home</Link>
-				<Link to="/gifts">Prezenty</Link>
-				<Link to="/pens">Długopisy</Link>
-				<Link to="/knifes">Noże</Link>
-				<Link to="/about-us">O nas</Link>
-				<Link to="/test">Testy</Link>
-				<a to="/"><FaShoppingCart className={"productCard_nav_cart"} /></a>
-				<FaShoppingCart className={"productCard_nav_cart2"} />
+				<Link to="/" onClick={showNavbar}>Home</Link>
+				<Link to="/gifts" onClick={showNavbar}>Prezenty</Link>
+				<Link to="/pens" onClick={showNavbar}>Długopisy</Link>
+				<Link to="/knifes" onClick={showNavbar}>Noże</Link>
+				<Link to="/about-us" onClick={showNavbar}>O nas</Link>
+				<Link to="/test" onClick={showNavbar}>Testy</Link>
+				<Link to="/shopping-cart" onClick={showNavbar}><FaShoppingCart className={"productCard_nav_cart"} /></Link>
+				<Link to="/shopping-cart"><FaShoppingCart className={"productCard_nav_cart2"} /></Link>
 				
 				<button
 					className="nav-btn nav-close-btn"
