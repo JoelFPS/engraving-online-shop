@@ -39,7 +39,7 @@ export class GetAllProducts extends Component {
 
 
                 {this.state.productData && (
-                    <div>
+                    <div className='grid'>
                         {this.state.productData.map(product => (
                             <div key={"a_" + product.id} className='productCard'>
                                 <div className='imageBlock'>

@@ -41,7 +41,7 @@ export class GetCatProducts extends Component {
         return (
             <div className='get'>
                 {this.state.productData && (
-                    <div>
+                    <div className='grid'>
                         {this.state.productData.map(product => (
                             <Link to={"./" + product.src}>
                             <div key={"a_" + product.id} className='productCard'>

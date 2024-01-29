@@ -34,7 +34,7 @@ const Footer = () => {
           <Column>
             <Heading>Kontakt</Heading>
             <FooterLink href="#">E-mail</FooterLink>
-            <FooterLink href="#">Telefon</FooterLink>
+            <FooterLink href="#" onClick={() => alert('wyłapano kliknięcie przycisku')}>Telefon</FooterLink>
             <FooterLink href="#">Messenger</FooterLink>
           </Column>
           <Column>

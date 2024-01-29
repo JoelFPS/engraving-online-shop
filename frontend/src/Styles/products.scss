@@ -4,13 +4,30 @@ $secondaryColor: #a7a5a5;
 $textColor: #eee;
 
 .productList {
-	display: flex;
-	justify-content: space-between;
 	margin-top: 1rem;
     width: 100%;
-	display: grid;
-	grid-template-columns: auto auto auto;
 	}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+	justify-items: center;
+}
+
+@media only screen and (max-width: 1435px) {
+	.grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+}
+
+@media only screen and (max-width: 987px) {
+	.grid {
+		grid-template-columns: 1fr;
+	}
+
+}
 
 .productCard {
 	position: relative;
@@ -23,6 +40,7 @@ $textColor: #eee;
 	border: solid 1px black;
 	float: left;
 	text-align: center;
+	color: black;
 }
 
 .productCard:hover {
@@ -84,7 +102,7 @@ h1{
 }
 
 .productSection {
-	border: solid 1px black;	
+	border: solid 1px black;
 }
 
 .textSection {
