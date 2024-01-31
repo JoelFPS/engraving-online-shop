@@ -18,7 +18,6 @@ export class GetCatProducts extends Component {
 
     getProducts() {
         const { category } = this.props; //pobieranie kategorii
-        //const productLink = "./product/"+product.src;
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -39,12 +38,12 @@ export class GetCatProducts extends Component {
 
     render() {
         return (
-            <div className='get'>
+            <div key="result-block" className='get'>
                 {this.state.productData && (
                     <div className='grid'>
                         {this.state.productData.map(product => (
-                            <Link to={"./"+product._id}>
-                            <div key={"a_" + product._id} className='productCard'>
+                            <Link key={"link_"+product._id} to={"./"+product._id}>
+                            <div key={"productCard_" + product._id} className='productCard'>
                                 <div className='imageBlock'>
                                     <img src={product.category+"/"+product.src+".png"} alt='product-img' className='productImage'></img>
                                 </div>

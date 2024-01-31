@@ -12,7 +12,9 @@ import AboutUs from "./Components/AboutUs.js";
 import Test from "./Components/Test.js";
 import ShoppingCart from "./Components/ShoppingCart.js";
 
-import Pen from "./Components/Products-pages/Pen.js"
+import ProductDetails from "./Components/Products-pages/ProductDetails.js"
+import PensList from "./Components/Products-pages/PensList.js"
+import KnifesList from "./Components/Products-pages/KnifesList.js"
 
 import "./Styles/main.scss";
 
@@ -40,9 +42,13 @@ function App(){
 						<Route index element={<Home />} />
 						<Route path="gifts" element={<Gifts />} />
 						<Route path="pens" element={<Pens />} >
-							<Route path=":penId" element={<Pen />} />
+							<Route path=":productId" element={<ProductDetails />} />
+							<Route path="" element={<PensList />} />
 						</Route>
-						<Route path="knifes" element={<Knifes />} />
+						<Route path="knifes" element={<Knifes />} >
+							<Route path=":productId" element={<ProductDetails />} />
+							<Route path="" element={<KnifesList />} />
+						</Route>
 						<Route path="about-us" element={<AboutUs />} />
 						<Route path="test" element={<Test />} />
 						<Route path="shopping-cart" element={<ShoppingCart />} />

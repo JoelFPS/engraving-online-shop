@@ -2,12 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import GetProduct from '../add-product/getProduct';
+import GetProduct from './getProduct';
 
-function Pen()
+function ProductDetails()
 {
-	const { penId } = useParams();
-	const pen = GetProduct(penId);
+	const { productId } = useParams();
     //debugger;
 	const [setPosts] = useState([]);
 	useEffect(() => {
@@ -22,17 +21,13 @@ function Pen()
             });
 	}, []);
 	return (
-		<div className='App'>
-			<div className="content">
-				<div className="productSection">
-					<h1>{pen.name}</h1>
-					<div className='productList'>
-
-					</div>
-				</div>
+		<div className="productSection">
+			<h1>Szczegóły produktu</h1>
+			<div className='productList'>
+				<GetProduct productId={productId}/>
 			</div>
 		</div>
 	);
 }
 
-export default Pen;
+export default ProductDetails;

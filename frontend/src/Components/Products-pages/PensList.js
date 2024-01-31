@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { GetCatProducts } from './Elements/GetCatProducts';
-import { Outlet } from 'react-router-dom';
+import { GetCatProducts } from '../Elements/GetCatProducts';
 
-function Pens()
+function PensList()
 {
     //debugger;
 	const [setPosts] = useState([]);
@@ -20,12 +19,13 @@ function Pens()
             });
 	}, []);
 	return (
-		<div className='App'>
-			<div className="content">
-				<Outlet />
-			</div>
-		</div>
+        <div className="productSection">
+            <h1>Długopisy</h1>
+            <div className='productList'>
+                <GetCatProducts category="pens"/>
+            </div>
+        </div>
 	);
 }
 
-export default Pens;
+export default PensList;
