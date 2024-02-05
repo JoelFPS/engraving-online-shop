@@ -32,6 +32,29 @@ const createProduct = asyncHandler(async (req, res) => {
     res.status(201).json(product);
 });
 
+
+//@desc Create new order
+//@route POST /api/products
+//@access public
+
+const createOrder = asyncHandler(async (req, res) => {
+    console.log("The request body is:", req.body);
+    const { username, date, totalPrice, adress, products } = req.body;
+    if(!username || !date || isNaN(parseFloat(totalPrice)) || !adress || !products) {
+        res.status(400);
+        throw new Error("All fields are mandatory!");
+    }
+    const order = await Order.create({
+        username, 
+        date, 
+        totalPrice, 
+        adress, 
+        products
+    })
+    res.status(201).json(order);
+});
+
+
 //@desc Get product
 //@route GET /api/products/:id
 //@access public
@@ -104,6 +127,7 @@ const deleteProduct = asyncHandler(async (req, res, next) => {
 module.exports = { 
     getProducts, 
     createProduct, 
+    createOrder,
     getProduct, 
     updateProduct, 
     deleteProduct,

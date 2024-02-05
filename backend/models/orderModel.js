@@ -5,33 +5,21 @@ const orderSchema = mongoose.Schema({
             type: String,
             required: [true, "Please add the username"]
         },
+        date:{
+            type: Date,
+            required: [true, "Please add the date of order"]
+        },
         totalPrice: {
             type: Number,
             required: [true, "Please add the total price"]
         },
-        city: {
+        adress: {
             type: String,
             required: [true, "Please add the city name"]
         },
-        street: {
-            type: String,
-            required: [true, "Please add the street name"]
-        },
-        number: {
-            type: Number,
-            required: [true, "Please add the house's number"]
-        },
-        apartmentNumber: {
-            type: Number,
-            required: [false, "Please add the apartment number"]
-        },
-        zipCode: {
-            type: String,
-            required: [true, "Please add the zip code"]
-        },
         products: {
             type: Object,
-            required: [true, "Please add the products"]
+            required: [true, "Please add the ordered products"]
         }
         
     },
