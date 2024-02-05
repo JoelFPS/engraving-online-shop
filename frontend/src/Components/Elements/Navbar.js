@@ -22,7 +22,7 @@ function Navbar() {
 				<Link to="/pens" onClick={showNavbar}>Długopisy</Link>
 				<Link to="/knifes" onClick={showNavbar}>Noże</Link>
 				<Link to="/about-us" onClick={showNavbar}>O nas</Link>
-				<Link to="/test" onClick={showNavbar}>Testy</Link>
+				<Link to="/admin" onClick={showNavbar}>Admin</Link>
 				<Link to="/shopping-cart" onClick={showNavbar}><FaShoppingCart className={"productCard_nav_cart"} /></Link>
 				<Link to="/shopping-cart"><FaShoppingCart className={"productCard_nav_cart2"} /></Link>
 				

@@ -1,7 +1,7 @@
 import AddProductForm from "./add-product/showProd";
 import GetProductForm from "./add-product/form";
 import DeleteProductForm from "./add-product/deleteProduct";
-function Test()
+function Admin()
 {
     return (
         <>
@@ -15,4 +15,4 @@ function Test()
     )
 }
 
-export default Test;
+export default Admin;

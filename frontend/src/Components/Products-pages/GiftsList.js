@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Outlet } from 'react-router-dom';
+import { GetAllProducts } from '../Elements/GetAllProducts';
 
-function Gifts(){
-	//debugger;
+function GiftsList()
+{
+    //debugger;
 	const [setPosts] = useState([]);
 	useEffect(() => {
         axios
@@ -18,12 +19,13 @@ function Gifts(){
             });
 	}, []);
 	return (
-		<div className='App'>
-			<div className="content">
-				<Outlet />
+		<div className="productSection">
+			<h1>Wszystkie Produkty</h1>
+			<div className='productList'>
+				<GetAllProducts />
 			</div>
 		</div>
 	);
 }
 
-export default Gifts;
+export default GiftsList;
