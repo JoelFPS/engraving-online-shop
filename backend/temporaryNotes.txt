@@ -1,17 +1,21 @@
 username
 adres
 totalPrice
-productName 
+products
 {
-    quantity (of product)
-    details (of product) like color
+    [
+        product.name
+        product.quantity
+    ]
+    [
+        product.name
+        product.quantity
+    ]
 }
+
 
 Przesyłanie żądania z frontu do backendu:
 https://stackabuse.com/get-http-request-in-react/ - w reakcie
-
-view/productPage:
-Na podstawie przesłanego id szuka w bazie odpowiednich danych i wstawia je w odpowiednich miejscach do szablonu na tej stronie. 
 
 Admin: 
 * wprowadzanie produktów do bazy ^
@@ -23,10 +27,5 @@ User:
 
 Do zrobienia:
 - wyśrodkować rekordy wyświetlane na stronie prezenty, długopisy i noże (pamiętać o odpowiedniej rozdzielczości obrazów)
-- osiągnąć 5 rekordów penów i knifów
 - zrobić stronę o nas z nałgłówkami ze stopki
 - zrobić na sztywno rekordy w home
-
------
-
-- opracować stronę poszczególnych produktów
