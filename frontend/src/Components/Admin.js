@@ -1,17 +1,12 @@
-import AddProductForm from "./add-product/showProd";
-import GetProductForm from "./add-product/form";
-import DeleteProductForm from "./add-product/deleteProduct";
+import { Outlet } from "react-router-dom";
 function Admin()
 {
     return (
-        <>
-        <h1>Pobieranie danych z bazy</h1>
-        <AddProductForm />
-        
-        <GetProductForm />
-
-        <DeleteProductForm />
-        </>
+            <div className="App">
+                <div className="content">
+                    <Outlet />
+                </div>
+            </div>
     )
 }
 

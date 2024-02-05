@@ -17,6 +17,10 @@ import GiftsList from "./Components/Products-pages/GiftsList.js"
 import PensList from "./Components/Products-pages/PensList.js"
 import KnifesList from "./Components/Products-pages/KnifesList.js"
 
+import AdminPanel from './Components/Admin-pages/AdminPanel.js'
+import AdminOrders from './Components/Admin-pages/AdminOrders.js'
+import AdminModify from './Components/Admin-pages/AdminModify.js'
+
 import "./Styles/main.scss";
 
 function App(){
@@ -54,7 +58,11 @@ function App(){
 							<Route path="" element={<KnifesList />} />
 						</Route>
 						<Route path="about-us" element={<AboutUs />} />
-						<Route path="admin" element={<Admin />} />
+						<Route path="admin" element={<Admin />} >
+							<Route path="" element={<AdminPanel />} />
+							<Route path="orders" element={<AdminOrders />} />
+							<Route path="modify" element={<AdminModify />} />
+						</Route>
 						<Route path="shopping-cart" element={<ShoppingCart />} />
 					</Route>
 				</Routes>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import GetProduct from './getProduct';
+import GetProduct from '../Elements/getProduct';
 
 function ProductDetails()
 {
