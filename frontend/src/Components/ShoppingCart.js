@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { FaBars, FaTimes, FaShoppingCart, FaStar} from "react-icons/fa";
 import GetProductsInCart from "./Elements/GetProductsInCart";
+import Summary from "./Elements/Summary";
 import "../Styles/ShoppingCart.scss";
 
 function ShoppingCart(props) {
@@ -14,7 +15,7 @@ function ShoppingCart(props) {
             </div>
             <div className="summary">
                 <h1>Podsumowanie zamówienia</h1>
-                
+                <Summary/>
             </div>
         </div>
     );

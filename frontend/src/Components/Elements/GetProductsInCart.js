@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaStar, FaShoppingCart } from 'react-icons/fa';
+import { CiCircleRemove } from "react-icons/ci";
 import "../../Styles/ShoppingCart.scss";
 
 export class GetAllProducts extends Component {
@@ -41,16 +41,12 @@ export class GetAllProducts extends Component {
                 {this.state.productData && (
                     <div>
                         {this.state.productData.map(product => (
-                            <div key={"a_" + product.id} className='productCard'>
-                                <div className='imageBlock'>
-                                    <img src={product.category+"/"+product.src+".png"} alt='product-img' className='productImage'></img>
-                                </div>
-                                <div className='productCard__content'>
-                                    <div className='displayStack__1'>
-                                        <h3 className='productName'>{product.name}</h3>
-                                        <div className='productPrice'>{product.price} zł</div>
-                                    </div>
-                                </div>
+                            <div key={"a_" + product.id} className='productCard1'>
+                                <div className='imageBlock1'>
+                                    <img src={product.category+"/"+product.src+".png"} alt='product-img' className='productImage1'></img>
+                                </div><CiCircleRemove className="remove"/>
+                                <h3 className='productName1'>{product.name}</h3>
+                                <div className='productPrice1'>{product.price} zł</div>  
                             </div>
                         ))}
                     </div>
