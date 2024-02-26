@@ -22,7 +22,6 @@ function ProductDetails()
 	}, []);
 	return (
 		<div className="productSection">
-			<h1>Szczegóły produktu</h1>
 			<div className='productList'>
 				<GetProduct productId={productId}/>
 			</div>

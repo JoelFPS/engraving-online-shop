@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "../../Styles/product.scss"
 
 export class GetProduct extends Component {
     constructor() {
@@ -51,21 +52,24 @@ export class GetProduct extends Component {
         return (
             <div className='product-get'>
                 {this.state.productData && (
-                    <div>
-                        <div>
-                            <h2>{this.state.productData.name}</h2>
-                            <p>Category: {this.state.productData.category}</p>
-                            <p>Src: {this.state.productData.src}</p>
-                            <p>Description: {this.state.productData.description}</p>
-                            <p>Price: {this.state.productData.price}</p>
-                            <p>Rating: {this.state.productData.rating}</p>
+                        <div className='product-page'>
+                            <div className='pg-left'>
+                                <img className="productPgImg" src={this.state.productData.src+".png"}></img>
+                            </div>
+                            <div className='pg-middle'>
+                                <h1>{this.state.productData.name}</h1>
+                                <div className='category'>Kategoria: {this.state.productData.category}</div>
+                                <div className='rating'>Opinie {this.state.productData.rating}</div>
+                                <div className='description'>{this.state.productData.description}</div>
+                            </div>
+                            <div className='pg-right'>
+                                    <h1 className='price'>{this.state.productData.price+" zł"}</h1>
+                                    <input className='quantity' type='number' id='quantity' defaultValue='1'/>
+                                    <input className='addToCartBtn' type='button' onClick={this.addToOrder()} value='Dodaj do koszyka' />
+                                    {/*<input type='button' onClick={} value='Przejdź do koszyka' />*/}
+                            </div>
+                            <div className='clear-both'></div>
                         </div>
-                        <div>
-                            <input type='number' id='quantity' />
-                            <input type='button' onClick={this.addToOrder()} value='Dodaj do koszyka' />
-                            {/*<input type='button' onClick={} value='Przejdź do koszyka' />*/}
-                        </div>
-                    </div>
                 )}
             </div>
         );

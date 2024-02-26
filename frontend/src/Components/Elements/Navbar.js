@@ -16,12 +16,12 @@ function Navbar() {
 		<header>
 			<h3>Grawerowy.pl</h3>
 			<nav ref={navRef}>
-				<Link to="/" onClick={showNavbar}>Home</Link>
-				<Link to="/gifts" onClick={showNavbar}>Prezenty</Link>
-				<Link to="/pens" onClick={showNavbar}>Długopisy</Link>
-				<Link to="/knifes" onClick={showNavbar}>Noże</Link>
-				<Link to="/about-us" onClick={showNavbar}>O nas</Link>
-				<Link to="/admin" onClick={showNavbar}>Admin</Link>
+				<Link to="/" onClick={showNavbar} className="nav-buttons">Home</Link>
+				<Link to="/gifts" onClick={showNavbar} className="nav-buttons">Prezenty</Link>
+				<Link to="/pens" onClick={showNavbar} className="nav-buttons">Długopisy</Link>
+				<Link to="/knifes" onClick={showNavbar} className="nav-buttons">Noże</Link>
+				<Link to="/about-us" onClick={showNavbar} className="nav-buttons">O nas</Link>
+				<Link to="/admin" onClick={showNavbar} className="nav-buttons">Admin</Link>
 				<Link to="/shopping-cart" onClick={showNavbar}><FaShoppingCart className={"productCard_nav_cart"} /></Link>
 				<Link to="/shopping-cart"><FaShoppingCart className={"productCard_nav_cart2"} /></Link>
 				

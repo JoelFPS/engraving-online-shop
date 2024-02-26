@@ -130,5 +130,16 @@ h1{
     border: solid 3px black;
     font-family: "Raleway";
     color: black;
-    font-size: 1.5rem
+    font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.continue-button {
+	background-color: gray;
+	color: white;
+}
+
+.payment-button:hover, .continue-button:hover {
+	background-color: green;
+	color: white;
 }
