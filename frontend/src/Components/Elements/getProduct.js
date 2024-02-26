@@ -10,6 +10,7 @@ export class GetProduct extends Component {
         this.getProduct = this.getProduct.bind(this);
     }
 
+    
     componentDidMount() {
         this.getProduct();
     }
@@ -35,17 +36,35 @@ export class GetProduct extends Component {
             console.log(this.state.productData);
     }
 
+    addToOrder() {
+        //jeśli zamówienie jeszcze nie istnieje, tworzy nowy rekord (zamówienie)
+        /*Dlatego:
+        
+        jeśli user nie jest zalogowany tworzy nowe zamówienie
+        jeśli user zalogowany
+            szuka rekordu który zawiera login usera
+            dopisuje do niego wybraną ilość i nazwę produktu
+        */
+    }
+
     render() {
         return (
             <div className='product-get'>
                 {this.state.productData && (
                     <div>
-                        <h2>{this.state.productData.name}</h2>
-                        <p>Category: {this.state.productData.category}</p>
-                        <p>Src: {this.state.productData.src}</p>
-                        <p>Description: {this.state.productData.description}</p>
-                        <p>Price: {this.state.productData.price}</p>
-                        <p>Rating: {this.state.productData.rating}</p>
+                        <div>
+                            <h2>{this.state.productData.name}</h2>
+                            <p>Category: {this.state.productData.category}</p>
+                            <p>Src: {this.state.productData.src}</p>
+                            <p>Description: {this.state.productData.description}</p>
+                            <p>Price: {this.state.productData.price}</p>
+                            <p>Rating: {this.state.productData.rating}</p>
+                        </div>
+                        <div>
+                            <input type='number' id='quantity' />
+                            <input type='button' onClick={this.addToOrder()} value='Dodaj do koszyka' />
+                            {/*<input type='button' onClick={} value='Przejdź do koszyka' />*/}
+                        </div>
                     </div>
                 )}
             </div>

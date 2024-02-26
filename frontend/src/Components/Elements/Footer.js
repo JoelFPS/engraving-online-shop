@@ -22,9 +22,9 @@ const Footer = () => {
         <Row>
           <Column>
             <Heading>O nas</Heading>
-            <FooterLink href="#">O firmie</FooterLink>
-            <FooterLink href="#">Technologia</FooterLink>
-            <FooterLink href="#">Sprzęt</FooterLink>
+            <FooterLink href="/about-us/#business">O firmie</FooterLink>
+            <FooterLink href="/about-us/#technology">Technologia</FooterLink>
+            <FooterLink href="/about-us/#equipment">Sprzęt</FooterLink>
           </Column>
           <Column>
             <Heading>Możliwości</Heading>
