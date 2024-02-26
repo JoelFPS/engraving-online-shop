@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const orderSchema = mongoose.Schema({
-        username: {
+        name: {
             type: String,
             required: [true, "Please add the username"]
         },
@@ -15,10 +15,10 @@ const orderSchema = mongoose.Schema({
         },
         adress: {
             type: String,
-            required: [true, "Please add the city name"]
+            required: [true, "Please add your address"]
         },
         products: {
-            type: Object,
+            type: Array,
             required: [true, "Please add the ordered products"]
         }
         

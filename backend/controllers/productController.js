@@ -39,13 +39,13 @@ const createProduct = asyncHandler(async (req, res) => {
 
 const createOrder = asyncHandler(async (req, res) => {
     console.log("The request body is:", req.body);
-    const { username, date, totalPrice, adress, products } = req.body;
-    if(!username || !date || isNaN(parseFloat(totalPrice)) || !adress || !products) {
+    const { login, date, totalPrice, adress, products } = req.body;
+    if(!login || !date || isNaN(parseFloat(totalPrice)) || !adress || !products) {
         res.status(400);
         throw new Error("All fields are mandatory!");
     }
     const order = await Order.create({
-        username, 
+        login, 
         date, 
         totalPrice, 
         adress, 

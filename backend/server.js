@@ -18,7 +18,7 @@ const port = process.env.PORT || 5000;
 app.set('view engine', 'ejs'); //set engine of templates EJS
 app.use(express.json());
 app.use("/api/products", productRoutes);
-app.use("/", viewsRoutes);
+app.use("/api/orders", viewsRoutes);
 app.use(errorHandler);
 
 app.listen(port, () => {
