@@ -6,7 +6,7 @@ import {
   Column,
   FooterLink,
   Heading,
-} from "../../Styles/FooterStyles";
+} from "../Styles/FooterStyles";
   
 
 /*<h1 style={{ color: "orange", 

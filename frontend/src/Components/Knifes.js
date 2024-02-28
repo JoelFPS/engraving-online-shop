@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { GetCatProducts } from './Elements/GetCatProducts';
 import { Outlet } from 'react-router-dom';
 
 function Knifes()

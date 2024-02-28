@@ -12,6 +12,8 @@ import AboutUs from "./Components/AboutUs.js";
 import Admin from "./Components/Admin.js";
 import ShoppingCart from "./Components/ShoppingCart.js";
 
+import Cart from "./Pages/Cart.js";
+
 import ProductDetails from "./Components/Products-pages/ProductDetails.js"
 import GiftsList from "./Components/Products-pages/GiftsList.js"
 import PensList from "./Components/Products-pages/PensList.js"
@@ -64,6 +66,7 @@ function App(){
 							<Route path="modify" element={<AdminModify />} />
 						</Route>
 						<Route path="shopping-cart" element={<ShoppingCart />} />
+						<Route path="cart" element={<Cart />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
