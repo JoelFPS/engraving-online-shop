@@ -19,9 +19,9 @@ import AllProductsList from "./Components/Lists/AllProductsList.js"
 import PensList from "./Components/Lists/PensList.js"
 import KnifesList from "./Components/Lists/KnifesList.js"
 
-import AdminPanel from './Pages/Admin/AdminPanel.js'
-import AdminOrders from './Pages/Admin/AdminOrders.js'
-import AdminModify from './Pages/Admin/AdminModify.js'
+import AdminPanel from './Pages/Outlets/Admin/AdminPanel.js'
+import AdminOrders from './Pages/Outlets/Admin/AdminOrders.js'
+import AdminModify from './Pages/Outlets/Admin/AdminModify.js'
 
 import "./Styles/main.scss";
 
@@ -47,26 +47,26 @@ function App(){
 				<Routes>
 					<Route path="/" element={<LayoutMain />}>
 						<Route index element={<Home />} />
-						<Route path="AllProducts" element={<AllProducts />} >
+						<Route exact path="all-products" element={<AllProducts />} >
 							<Route path=":productId" element={<ProductDetails />} />
 							<Route path="" element={<AllProductsList />} />
 						</Route>
-						<Route path="pens" element={<Pens />} >
+						<Route exact path="pens" element={<Pens />} >
 							<Route path=":productId" element={<ProductDetails />} />
 							<Route path="" element={<PensList />} />
 						</Route>
-						<Route path="knifes" element={<Knifes />} >
+						<Route exact path="knifes" element={<Knifes />} >
 							<Route path=":productId" element={<ProductDetails />} />
 							<Route path="" element={<KnifesList />} />
 						</Route>
-						<Route path="about-us" element={<AboutUs />} />
-						<Route path="admin" element={<Admin />} >
+						<Route exact path="about-us" element={<AboutUs />} />
+						<Route exact path="admin" element={<Admin />} >
 							<Route path="" element={<AdminPanel />} />
 							<Route path="orders" element={<AdminOrders />} />
 							<Route path="modify" element={<AdminModify />} />
 						</Route>
-						<Route path="shopping-cart" element={<ShoppingCart />} />
-						<Route path="cart" element={<Cart />} />
+						<Route exact path="shopping-cart" element={<ShoppingCart />} />
+						<Route exact path="cart" element={<Cart />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

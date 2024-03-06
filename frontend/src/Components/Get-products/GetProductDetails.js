@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CartContext from '../../Context/Cart/CartContext';
+import { useContext } from 'react';
 import "../../Styles/product.scss"
 
 export class GetProduct extends Component {
@@ -38,14 +40,7 @@ export class GetProduct extends Component {
     }
 
     addToOrder() {
-        //jeśli zamówienie jeszcze nie istnieje, tworzy nowy rekord (zamówienie)
-        /*Dlatego:
-        
-        jeśli user nie jest zalogowany tworzy nowe zamówienie
-        jeśli user zalogowany
-            szuka rekordu który zawiera login usera
-            dopisuje do niego wybraną ilość i nazwę produktu
-        */
+
     }
 
     render() {
