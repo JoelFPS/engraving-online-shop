@@ -3,25 +3,25 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import LayoutMain from "./Components/LayoutMain.js";
-import Home from "./Components/Home.js";
-import Gifts from "./Components/Gifts.js";
-import Pens from "./Components/Pens.js";
-import Knifes from "./Components/Knifes.js";
-import AboutUs from "./Components/AboutUs.js";
-import Admin from "./Components/Admin.js";
-import ShoppingCart from "./Components/ShoppingCart.js";
+import LayoutMain from "./Pages/LayoutMain.js";
+import Home from "./Pages/Outlets/Home.js";
+import AllProducts from "./Pages/Outlets/AllProducts.js";
+import Pens from "./Pages/Outlets/Pens.js";
+import Knifes from "./Pages/Outlets/Knifes.js";
+import AboutUs from "./Pages/Outlets/AboutUs.js";
+import Admin from "./Pages/Outlets/Admin.js";
+import ShoppingCart from "./Components/Cart/ShoppingCart.js";
 
-import Cart from "./Pages/Cart.js";
+import Cart from "./Pages/Outlets/Cart/Cart.js";
 
-import ProductDetails from "./Components/Products-pages/ProductDetails.js"
-import GiftsList from "./Components/Products-pages/GiftsList.js"
-import PensList from "./Components/Products-pages/PensList.js"
-import KnifesList from "./Components/Products-pages/KnifesList.js"
+import ProductDetails from "./Pages/Outlets/Product/ProductDetails.js"
+import AllProductsList from "./Components/Lists/AllProductsList.js"
+import PensList from "./Components/Lists/PensList.js"
+import KnifesList from "./Components/Lists/KnifesList.js"
 
-import AdminPanel from './Components/Admin-pages/AdminPanel.js'
-import AdminOrders from './Components/Admin-pages/AdminOrders.js'
-import AdminModify from './Components/Admin-pages/AdminModify.js'
+import AdminPanel from './Pages/Admin/AdminPanel.js'
+import AdminOrders from './Pages/Admin/AdminOrders.js'
+import AdminModify from './Pages/Admin/AdminModify.js'
 
 import "./Styles/main.scss";
 
@@ -47,9 +47,9 @@ function App(){
 				<Routes>
 					<Route path="/" element={<LayoutMain />}>
 						<Route index element={<Home />} />
-						<Route path="gifts" element={<Gifts />} >
+						<Route path="AllProducts" element={<AllProducts />} >
 							<Route path=":productId" element={<ProductDetails />} />
-							<Route path="" element={<GiftsList />} />
+							<Route path="" element={<AllProductsList />} />
 						</Route>
 						<Route path="pens" element={<Pens />} >
 							<Route path=":productId" element={<ProductDetails />} />

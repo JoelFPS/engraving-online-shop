@@ -17,7 +17,7 @@ function Navbar() {
 			<h3>Grawerowy.pl</h3>
 			<nav ref={navRef}>
 				<Link to="/" onClick={showNavbar} className="nav-buttons">Home</Link>
-				<Link to="/gifts" onClick={showNavbar} className="nav-buttons">Prezenty</Link>
+				<Link to="/AllProducts" onClick={showNavbar} className="nav-buttons">Prezenty</Link>
 				<Link to="/pens" onClick={showNavbar} className="nav-buttons">Długopisy</Link>
 				<Link to="/knifes" onClick={showNavbar} className="nav-buttons">Noże</Link>
 				<Link to="/about-us" onClick={showNavbar} className="nav-buttons">O nas</Link>
