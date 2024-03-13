@@ -5,7 +5,7 @@ import CartIcon from "/assets/icons/cart.svg";
 import CartContext from "../Context/Cart/CartContext";
 import { useContext } from "react";
 
-const Navbar = () => {
+const Navbartest = () => {
 const [toggle, setToggle] = useState(false);
 const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
@@ -83,3 +83,5 @@ return (
     </Nav>
 );
 };
+
+export default Navbartest;

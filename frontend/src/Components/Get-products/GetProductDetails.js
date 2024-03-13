@@ -12,7 +12,6 @@ export class GetProduct extends Component {
         };
         this.getProduct = this.getProduct.bind(this);
     }
-
     
     componentDidMount() {
         this.getProduct();
@@ -20,6 +19,8 @@ export class GetProduct extends Component {
 
     getProduct() {
         const { productId } = this.props;
+        const { addToCart, increase, cartItems, sumItems, itemCount } =
+        useContext(CartContext);
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -39,10 +40,6 @@ export class GetProduct extends Component {
             console.log(this.state.productData);
     }
 
-    addToOrder() {
-
-    }
-
     render() {
         return (
             <div className='product-get'>
@@ -60,7 +57,7 @@ export class GetProduct extends Component {
                             <div className='pg-right'>
                                     <h1 className='price'>{this.state.productData.price+" zł"}</h1>
                                     <input className='quantity' type='number' id='quantity' defaultValue='1'/>
-                                    <input className='addToCartBtn' type='button' onClick={this.addToOrder()} value='Dodaj do koszyka' />
+                                    <input className='addToCartBtn' type='button' value='Dodaj do koszyka' />
                                     {/*<input type='button' onClick={} value='Przejdź do koszyka' />*/}
                             </div>
                             <div className='clear-both'></div>

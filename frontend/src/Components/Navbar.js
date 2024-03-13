@@ -26,12 +26,13 @@ function Navbar() {
 				<Link to="/knifes" onClick={showNavbar} className="nav-buttons">Noże</Link>
 				<Link to="/about-us" onClick={showNavbar} className="nav-buttons">O nas</Link>
 				<Link to="/admin" onClick={showNavbar} className="nav-buttons">Admin</Link>
-				<Link to="/shopping-cart" onClick={showNavbar}><FaShoppingCart className={"productCard_nav_cart"} /></Link>
-				<Link to="/shopping-cart"><FaShoppingCart className={"productCard_nav_cart2"} />
-				{cartItems.length > -1 && (
-				cartItems.length
-				)}
-				</Link>
+				<div className={"productCard_nav_cart2"}>
+					<Link to="/shopping-cart" onClick={showNavbar}>
+						<FaShoppingCart className={"productCard_nav_cart"} />	
+						<FaShoppingCart/>
+						{ cartItems.length > -1 && (cartItems.length) }
+					</Link>
+				</div>
 				
 				<button
 					className="nav-btn nav-close-btn"
