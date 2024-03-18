@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "../../Styles/Admin.scss";
 
 export class AddProductForm extends Component {
     constructor() {
@@ -35,7 +36,7 @@ export class AddProductForm extends Component {
     render() {
         return (
             <div className='add'>
-                <h1>Wprowadzanie danych do bazy</h1>
+                <h1>Wprowadzanie danych do bazy</h1><br></br>
                     <input type="text" placeholder="nazwa" value={this.state.name} onChange={evt => this.updateNameValue(evt)}/><br/>
                     <input type="text" placeholder="kategoria" value={this.state.category} onChange={evt => this.updateCategoryValue(evt)}/><br/>
                     <input type="text" placeholder="src" value={this.state.src} onChange={evt => this.updateSrcValue(evt)}/><br/>

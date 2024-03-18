@@ -4,6 +4,12 @@
 	grid-template-rows: auto;
 }
 
+@media only screen and (max-width: 1024px) {
+	.cart{
+		grid-template-columns: auto;
+	}
+}
+
 .products, .summary{
     border: solid 1px black;
     margin: 1rem;

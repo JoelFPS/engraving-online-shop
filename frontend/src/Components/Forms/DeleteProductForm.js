@@ -34,7 +34,7 @@ export class DeleteProductForm extends Component {
     render() {
         return (
             <div className='del'>
-                <h1>Usuwanie danych z bazy</h1>
+                <h1>Usuwanie danych z bazy</h1><br></br>
                 <label>Podaj nazwę produktu: </label>
                 <input type="text" value={this.state.productName} onChange={evt => this.DeleteProductNameValue(evt)} />
                 <input type="button" value="Usuń dane" onClick={this.delProduct} />

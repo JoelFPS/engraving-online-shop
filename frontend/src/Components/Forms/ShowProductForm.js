@@ -31,13 +31,13 @@ export class ShowProductForm extends Component {
     render() {
         return (
             <div className='get'>
-                <h1>Pobieranie danych z bazy</h1>
+                <h1>Pobieranie danych z bazy</h1><br></br>
                 <label>Podaj ID produktu: </label>
                 <input type="text" value={this.state.productId} onChange={evt => this.ShowProductIdValue(evt)} />
                 <input type="button" value="Pobierz dane" onClick={this.getProduct} />
 
                 {this.state.productData && (
-                    <div>
+                    <div><br></br>
                         <h2>Dane produktu:</h2>
                         <p>Name: {this.state.productData.name}</p>
                         <p>Category: {this.state.productData.category}</p>

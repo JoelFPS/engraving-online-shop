@@ -41,7 +41,11 @@ function GetProduct(props) {
                     <div className='pg-middle'>
                         <h1>{productData.name}</h1>
                         <div className='category'>Kategoria: {productData.category}</div>
-                        <div className='rating'>Opinie {productData.rating}</div>
+                        <div className='rating'>
+                        Opinie {[...Array(productData.rating)].map((_, index) => (
+                            <span key={index}>&#9733;</span> // Kod Unicode dla gwiazdki
+                        ))}
+                        </div>
                         <div className='description'>{productData.description}</div>
                     </div>
                     <div className='pg-right'>
