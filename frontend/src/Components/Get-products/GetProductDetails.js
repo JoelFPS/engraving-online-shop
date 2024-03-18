@@ -11,6 +11,10 @@ function GetProduct(props) {
     const { productId: productIdProp } = props;
     const { addToCart, increase, cartItems, sumItems, itemCount } = useContext(CartContext);
 
+    const isInCart = (product) => {
+        return !!cartItems.find((item) => item.id === product.id);
+      };
+
     useEffect(() => {
         getProduct();
     }, []);
@@ -47,8 +51,12 @@ function GetProduct(props) {
                     <div className='pg-right'>
                         <h1 className='price'>{productData.price + " zł"}</h1>
                         <input className='quantity' type='number' id='quantity' defaultValue='1' />
-                        <input className='addToCartBtn' type='button' value='Dodaj do koszyka' />
-                        {/*<input type='button' onClick={} value='Przejdź do koszyka' />*/}
+                        {isInCart(productData) && (
+                            <input type='button' onClick={increase(productData)} className="btn" value='Dodaj więcej' />
+                        )}
+                        {!isInCart(productData) && (
+                            <input type='button' onClick={addToCart(productData)} className="btn" value='Dodaj do koszyka' />
+                        )}
                     </div>
                     <div className='clear-both'></div>
                 </div>
