@@ -1,31 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CartContext from '../../Context/Cart/CartContext';
 import { useContext } from 'react';
 import "../../Styles/product.scss";
 import { useState, useEffect } from 'react';
 
-function GetProduct(props) {
-    const [productId, setProductId] = useState("");
+function GetProductDetails(props) {
     const [productData, setProductData] = useState(null);
+    const { productId } = props;
     
-    const { productId: productIdProp } = props;
     const { addToCart, increase, cartItems, sumItems, itemCount } = useContext(CartContext);
 
-    const isInCart = (product) => {
-        return !!cartItems.find((item) => item.id === product.id);
+    const isInCart = () => {
+        const bool = !!cartItems.find((item) => item._id === productId);
+        console.log(bool)
+        console.log(cartItems)
+        if(bool == true) {
+            increase(productData);
+            console.log("increase")
+        } else {
+            addToCart(productData);
+            console.log("add")
+        }
       };
 
     useEffect(() => {
         getProduct();
-    }, []);
-
+    });
+    
     const getProduct = () => {
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         };
-
-        fetch(`http://localhost:5001/api/products/${productIdProp}`, requestOptions)
+        fetch(`http://localhost:5001/api/products/${productId}`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 setProductData(data);
@@ -55,12 +62,7 @@ function GetProduct(props) {
                     <div className='pg-right'>
                         <h1 className='price'>{productData.price + " zł"}</h1>
                         <input className='quantity' type='number' id='quantity' defaultValue='1' />
-                        {isInCart(productData) && (
-                            <input type='button' onClick={increase(productData)} className="btn" value='Dodaj więcej' />
-                        )}
-                        {!isInCart(productData) && (
-                            <input type='button' onClick={addToCart(productData)} className="btn" value='Dodaj do koszyka' />
-                        )}
+                        <input type='button' onClick={() => isInCart(productData)} className="btn" value='Dodaj do koszyka' />
                     </div>
                     <div className='clear-both'></div>
                 </div>
@@ -69,4 +71,4 @@ function GetProduct(props) {
     );
 }
 
-export default GetProduct;
+export default GetProductDetails;

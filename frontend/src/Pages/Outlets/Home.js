@@ -6,19 +6,20 @@ import { GetOneProduct } from '../../Components/Get-products/GetOneProduct';
 
 function Home()
 {
-    //debugger;
-	const [setPosts] = useState([]);
+	//debugger;
+	const [posts, setPosts] = useState([]);
+
 	useEffect(() => {
-        axios
-            .get('http://localhost:5001/api/products')
-            .then((response) => {
-                setPosts(response.data);
-		        console.log(response.data);
-            })
-            .catch((err) => {
-            	console.log(err); 
-            });
+		axios
+			.get('http://localhost:5001/api/products')
+			.then((response) => {
+				setPosts(response.data);
+			})
+			.catch((err) => {
+			console.log(err);
+			});
 	}, []);
+
 	return (
 		<div className='App'>
 			<div className="content">

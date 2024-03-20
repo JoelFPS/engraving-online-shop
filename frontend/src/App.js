@@ -29,13 +29,11 @@ function App(){
 	//debugger;
 	const [posts, setPosts] = useState([]);
 
-	console.log('test')
 	useEffect(() => {
       	axios
          	.get('http://localhost:5001/api/products')
          	.then((response) => {
            		setPosts(response.data);
-		   		console.log(response.data);
          	})
          	.catch((err) => {
             	console.log(err);

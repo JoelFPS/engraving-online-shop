@@ -8,7 +8,6 @@ function ShoppingCart(props) {
         <div className="cart">
             <div className="products">
             <h1>Twoje zakupy w koszyku</h1>
-            <GetProductsInCart/>
 
             </div>
             <div className="summary">
@@ -20,3 +19,4 @@ function ShoppingCart(props) {
 }
 
 export default ShoppingCart;
+
