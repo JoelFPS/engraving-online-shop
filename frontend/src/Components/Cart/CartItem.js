@@ -19,24 +19,23 @@ const CartItem = ({ product }) => {
       <BtnContainer>
         <button
           onClick={() => increase(product)}
-          className="btn btn-primary btn-sm mr-2 mb-1"
-        >
-          <Icon src={"icon/add-circle-outline"} alt="" />
+          className="btn btn-primary btn-sm mr-2 mb-1">
+          <Icon src={"icon/add-circle-outline.svg"} alt="+" />
         </button>
 
         <div>
-          <p>Qty: {product.quantity}</p>
+          <p>Ilość: {product.quantity}</p>
         </div>
 
         {product.quantity > 1 && (
           <button onClick={() => decrease(product)} className="btn">
-            <Icon src={"icons/remove-circle-outline.svg"} alt="" />
+            <Icon src={"icon/remove-circle-outline.svg"} alt="-" />
           </button>
         )}
 
         {product.quantity === 1 && (
           <button onClick={() => removeFromCart(product)} className="btn">
-            <Icon src={"icon/trash-outline.svg"} alt="" />
+            <Icon src={"icon/trash-outline.svg"} alt="delete" />
           </button>
         )}
       </BtnContainer>

@@ -9,17 +9,16 @@ const storage = localStorage.getItem("cartItems")
   : [];
 
 const CartState = ({ children }) => {
-  const initialState = {
-    cartItems: [],
-    checkout: false,
-  };
+//   const initialState = {
+//     cartItems: [],
+//     checkout: false,
+//   };
 
-    //Change the code above to that below to get the initial state from local storage
-  // const initialState = {
-  //   cartItems: storage,
-  //   ...sumItems(storage),
-  //   checkout: false,
-  // };
+const initialState = {
+  cartItems: storage,
+  ...sumItems(storage),
+  checkout: false,
+};
     //Set up the reducer
     const [state, dispatch] = useReducer(CartReducer, initialState);
 

@@ -35,7 +35,7 @@ const CartReducer = (state, action) => {
 switch (action.type) {
     // If the action type is ADD_TO_CART, we want to add the item to the cartItems array
     case ADD_TO_CART:
-    if (!state.cartItems.find((item) => item.id === action.payload.id)) {
+    if (!state.cartItems.find((item) => item._id === action.payload._id)) {
         state.cartItems.push({
         ...action.payload,
         quantity: 1,
@@ -53,18 +53,19 @@ switch (action.type) {
     return {
         ...state,
         ...sumItems(
-        state.cartItems.filter((item) => item.id !== action.payload.id)
+        state.cartItems.filter((item) => item._id !== action.payload._id)
         ),
         cartItems: [
-        ...state.cartItems.filter((item) => item.id !== action.payload.id),
+        ...state.cartItems.filter((item) => item._id !== action.payload._id),
         ],
     };
 
     // If the action type is INCREASE, we want to increase the quantity of the particular item in the cartItems array
     case INCREASE:
     state.cartItems[
-        state.cartItems.findIndex((item) => item.id === action.payload.id)
+        state.cartItems.findIndex((item) => item._id === action.payload._id)
     ].quantity++;
+    console.log("przelot increase");
     return {
         ...state,
         ...sumItems(state.cartItems),
@@ -74,7 +75,7 @@ switch (action.type) {
     // If the action type is DECREASE, we want to decrease the quantity of the particular item in the cartItems array
     case DECREASE:
     state.cartItems[
-        state.cartItems.findIndex((item) => item.id === action.payload.id)
+        state.cartItems.findIndex((item) => item._id === action.payload._id)
     ].quantity--;
     return {
         ...state,
