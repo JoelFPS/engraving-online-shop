@@ -12,7 +12,7 @@ import AboutUs from "./Pages/Outlets/AboutUs.js";
 import Admin from "./Pages/Outlets/Admin.js";
 import ShoppingCart from "./Components/Cart/ShoppingCart.js";
 
-import Cart from "./Pages/Outlets/Cart/Cart.js";
+import OrderForm from "./Pages/Order/OrderForm.js";
 
 import ProductDetails from "./Pages/Outlets/Product/ProductDetails.js"
 import AllProductsList from "./Components/Lists/AllProductsList.js"
@@ -64,7 +64,7 @@ function App(){
 							<Route path="modify" element={<AdminModify />} />
 						</Route>
 						<Route exact path="shopping-cart" element={<ShoppingCart />} />
-						<Route exact path="cart" element={<Cart />} />
+						<Route exact path="order-form" element={<OrderForm />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

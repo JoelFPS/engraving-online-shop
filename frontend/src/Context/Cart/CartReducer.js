@@ -86,7 +86,7 @@ switch (action.type) {
     // If the action type is CHECKOUT, we want to clear the cartItems array and set the checkout to true
     case CHECKOUT:
     return {
-        cartItems: [],
+        //cartItems: [],
         checkout: true,
         ...sumItems([]),
     };

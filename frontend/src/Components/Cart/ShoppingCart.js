@@ -22,7 +22,7 @@ function ShoppingCart(props) {
                 {
                     <div className="items">
                         {cartItems.length === 0 ? (
-                            <button className='addSthToCart'>Dodaj coś do koszyka</button>
+                            <Link to="/all-products"><button className='addSthToCart'>Dodaj coś do koszyka</button></Link>
                         ) : (
                             <ul>
                                 {cartItems.map((product) => (

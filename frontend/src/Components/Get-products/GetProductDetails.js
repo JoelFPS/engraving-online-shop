@@ -1,8 +1,10 @@
 import React from 'react';
-import CartContext from '../../Context/Cart/CartContext';
 import { useContext } from 'react';
+import CartContext from '../../Context/Cart/CartContext';
 import "../../Styles/product.scss";
 import { useState, useEffect } from 'react';
+import { FiMinusCircle } from "react-icons/fi";
+import { FiPlusCircle } from "react-icons/fi";
 
 function GetProductDetails(props) {
     const [productData, setProductData] = useState(null);
@@ -21,7 +23,19 @@ function GetProductDetails(props) {
             addToCart(productData);
             console.log("add")
         }
-      };
+    };
+
+    const countInCart = () => {
+        const Quantity = cartItems.find((item) => item._id === productId).quantity;
+        console.log(Quantity);
+        if(Quantity > 1) {
+            decrease(productData);
+            console.log("decrease")
+        } else {
+            removeFromCart(productData);
+            console.log("remove")
+        }
+    }
 
     useEffect(() => {
         getProduct();
@@ -62,7 +76,13 @@ function GetProductDetails(props) {
                     <div className='pg-right'>
                         <h1 className='price'>{productData.price + " zł"}</h1>
                         <input className='quantity' type='number' id='quantity' defaultValue='1' />
-                        <input type='button' onClick={() => isInCart(productData)} className="btn" value='Dodaj do koszyka' />
+                        <div>
+                            <FiMinusCircle onClick={() => countInCart(productData)} className="minus-btn"/>
+                            <FiPlusCircle onClick={() => isInCart(productData)} className="plus-btn"/>
+                        
+                            <input type='button' onClick={() => isInCart(productData)} className="btn" value='Dodaj do koszyka' />
+
+		                </div> 
                     </div>
                     <div className='clear-both'></div>
                 </div>

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { formatCurrency } from "../../utils.js";
 import { useContext } from "react";
 import CartContext from "../../Context/Cart/CartContext.js";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
 	const { clearCart, handleCheckout, itemCount, total } = useContext(CartContext);
@@ -20,7 +21,7 @@ const Checkout = () => {
 			<div className='sum-text'><h2>Suma</h2></div>
 			<div className='sum-price'><h2>{formatCurrency(totalPrice)}</h2></div>
 
-			<button className='payment-button' onClick={handleCheckout}>Przejdź do płatności</button>
+			<Link to="/order-form"><button className='payment-button' onClick={handleCheckout}>Przejdź do płatności</button></Link>
 			<button className='clear-button' onClick={clearCart}>Wyczyść koszyk</button>
 		</div>
   	);
