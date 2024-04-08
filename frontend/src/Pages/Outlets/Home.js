@@ -25,6 +25,9 @@ function Home()
                 {/*<div className='textSection'>
                     Znajdź inspirację na wyjątkowy prezent na każdą okazję
                 </div>*/}
+				<div className='baner'>
+					<img src='baner.png' className='baner'></img>
+				</div>
 				<div className="productSection">
 					<h1>Najczęściej kupowane</h1>
 					<div className='productList'>
