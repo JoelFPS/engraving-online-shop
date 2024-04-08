@@ -3,6 +3,9 @@ import { useContext } from "react";
 import CartContext from "../../Context/Cart/CartContext.js";
 import styled from "styled-components";
 import { formatCurrency } from "../../utils.js";
+import { FiMinusCircle } from "react-icons/fi";
+import { FiPlusCircle } from "react-icons/fi";
+import "../../Styles/ShoppingCart.scss";
 
 const CartItem = ({ product }) => {
 const { removeFromCart, increase, decrease } = useContext(CartContext);
@@ -18,26 +21,19 @@ const { removeFromCart, increase, decrease } = useContext(CartContext);
 		{/* Buttons */}
 		<BtnContainer>
 			{product.quantity > 1 && (
-			<button onClick={() => decrease(product)} className="btn">
-				<Icon src={"icon/remove-circle-outline.svg"} alt="-" />
-			</button>
+				<FiMinusCircle onClick={() => decrease(product)} className="minus-btn" />
 			)}
 
 			{product.quantity === 1 && (
-			<button onClick={() => removeFromCart(product)} className="btn">
-				<Icon src={"icon/trash-outline.svg"} alt="delete" />
-			</button>
+				<FiMinusCircle onClick={() => removeFromCart(product)} className="minus-btn"/>
 			)}
 
 			<div>
 			<p>Ilość: {product.quantity}</p>
 			</div>
+			
+			<FiPlusCircle onClick={() => increase(product)} className="plus-btn"/>
 
-			<button
-			onClick={() => increase(product)}
-			className="btn btn-primary btn-sm mr-2 mb-1">
-			<Icon src={"icon/add-circle-outline.svg"} alt="+" />
-			</button>
 		</BtnContainer>
 		</SingleCartItem>
 	);

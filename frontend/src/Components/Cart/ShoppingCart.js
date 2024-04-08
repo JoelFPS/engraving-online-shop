@@ -20,9 +20,9 @@ function ShoppingCart(props) {
             <h1>Twoje zakupy w koszyku ({cartItems.length})</h1>
                 <div> 
                 {
-                    <div>
+                    <div className="items">
                         {cartItems.length === 0 ? (
-                            <h4>Cart is empty</h4>
+                            <button className='addSthToCart'>Dodaj coś do koszyka</button>
                         ) : (
                             <ul>
                                 {cartItems.map((product) => (

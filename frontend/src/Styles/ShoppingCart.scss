@@ -128,7 +128,7 @@ h1{
     margin-top: 3rem;
 }
 
-.payment-button, .continue-button {
+.payment-button, .clear-button {
     margin: 3rem;
     height: 3rem;
     cursor: pointer;
@@ -140,12 +140,47 @@ h1{
 	font-weight: bold;
 }
 
-.continue-button {
+.addSthToCart {
+	margin: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    background-color: #52313196;
+    border: solid 3px black;
+    font-family: "Raleway";
+    color: black;
+    font-size: 1.5rem;
+	font-weight: bold;
+	padding: 1rem;
+	line-height: 1rem;
+	
+}
+
+.addSthToCart:hover {
+	background-color: #523131;
+	color: white;
+}
+
+.items {
+	text-align: center;
+}
+
+.clear-button {
 	background-color: gray;
 	color: white;
 }
 
-.payment-button:hover, .continue-button:hover {
+.payment-button:hover {
 	background-color: green;
 	color: white;
+}
+
+.clear-button:hover {
+	background-color: red;
+	color: white;
+}
+
+.minus-btn, .plus-btn{
+	font-size: 2rem;
+	cursor: pointer;
+	margin: 1rem;
 }
