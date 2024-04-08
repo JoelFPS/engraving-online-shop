@@ -8,7 +8,7 @@ function GetProductDetails(props) {
     const [productData, setProductData] = useState(null);
     const { productId } = props;
     
-    const { addToCart, increase, cartItems, sumItems, itemCount } = useContext(CartContext);
+    const { addToCart, increase, decrease, removeFromCart, cartItems, sumItems, itemCount } = useContext(CartContext);
 
     const isInCart = () => {
         const bool = !!cartItems.find((item) => item._id === productId);
