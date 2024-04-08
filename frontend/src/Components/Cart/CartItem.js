@@ -9,7 +9,7 @@ const CartItem = ({ product }) => {
 
   return (
     <SingleCartItem>
-      <CartImage src={product.image} alt={product.name} />
+      <CartImage src={product.category+"/"+product.src+".png"} alt={product.name} />
       <div>
         <h5>{product.name}</h5>
         <p>{formatCurrency(product.price)}</p>

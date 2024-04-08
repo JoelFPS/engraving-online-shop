@@ -36,7 +36,7 @@ function ShoppingCart(props) {
             </div>
             <div className="summary">
                 <h1>Podsumowanie zamówienia</h1>
-                <Summary/>
+                {cartItems.length > 0 && <Checkout />}
             </div>
 
             {checkout && (
@@ -51,9 +51,6 @@ function ShoppingCart(props) {
                     </Link>
                 </div>
             )}
-            <div>
-                {cartItems.length > 0 && <Checkout />}
-            </div>
         </div>
 
     );

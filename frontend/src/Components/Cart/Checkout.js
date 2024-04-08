@@ -4,22 +4,26 @@ import { useContext } from "react";
 import CartContext from "../../Context/Cart/CartContext.js";
 
 const Checkout = () => {
-  const { clearCart, handleCheckout, itemCount, total } =
-    useContext(CartContext);
+	const { clearCart, handleCheckout, itemCount, total } = useContext(CartContext);
+	let shipment = parseFloat(15.99);
+	let itemsPrice = parseFloat(total);
+	const totalPrice = shipment+itemsPrice;
 
-  return (
-    <Wrapper>
-      <p>Total Items:</p>
-      <h4>{itemCount}</h4>
-      <p>Total Payment:</p>
-      <h4>{formatCurrency(total)}</h4>
-      <hr />
-      <div>
-        <CheckBtn onClick={handleCheckout}>CHECKOUT</CheckBtn>
-        <ClearBtn onClick={clearCart}>CLEAR</ClearBtn>
-      </div>
-    </Wrapper>
-  );
+	return (
+		<div className='sum'>
+			<div className='prod-text'><h2>Liczba produktów</h2></div>
+			<div className='prod-price'><h2>{itemCount}</h2></div>
+
+			<div className='ship-text'><h2>Wysyłka</h2></div>
+			<div className='ship-price'><h2>15,99 zł</h2></div>
+
+			<div className='sum-text'><h2>Suma</h2></div>
+			<div className='sum-price'><h2>{formatCurrency(totalPrice)}</h2></div>
+
+			<button className='payment-button' onClick={handleCheckout}>Przejdź do płatności</button>
+			<button className='clear-button' onClick={clearCart}>Wyczyść koszyk</button>
+		</div>
+  	);
 };
 
 // Styled Components
