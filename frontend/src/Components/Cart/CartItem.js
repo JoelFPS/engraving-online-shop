@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import CartContext from "../../Context/Cart/CartContext.js";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { formatCurrency } from "../../utils.js";
 import { FiMinusCircle } from "react-icons/fi";
@@ -11,7 +12,7 @@ const CartItem = ({ product }) => {
 const { removeFromCart, increase, decrease } = useContext(CartContext);
 
 	return (
-		<SingleCartItem>
+		<Link to={"/"+product.category+"/"+product._id}><SingleCartItem>
 		<CartImage src={product.category+"/"+product.src+".png"} alt={product.name} />
 		<div>
 			<h5>{product.name}</h5>
@@ -35,7 +36,8 @@ const { removeFromCart, increase, decrease } = useContext(CartContext);
 			<FiPlusCircle onClick={() => increase(product)} className="plus-btn"/>
 
 		</BtnContainer>
-		</SingleCartItem>
+		
+		</SingleCartItem></Link>
 	);
 };
 

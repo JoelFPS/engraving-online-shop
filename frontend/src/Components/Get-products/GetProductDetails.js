@@ -12,36 +12,59 @@ function GetProductDetails(props) {
     
     const { addToCart, increase, decrease, removeFromCart, cartItems, sumItems, itemCount } = useContext(CartContext);
 
-    const isInCart = () => {
+    const isInCart = async () => {
         const bool = !!cartItems.find((item) => item._id === productId);
         console.log(bool)
-        console.log(cartItems)
+        console.log(`itemCount: ${itemCount}`);
         if(bool == true) {
-            increase(productData);
+            await increase(productData);
             console.log("increase")
+            quantityOfProduct(true);
         } else {
-            addToCart(productData);
+            await addToCart(productData);
             console.log("add")
+            quantityOfProduct(false);
         }
     };
 
-    const countInCart = () => {
+    const countInCart = async () => {
         const Quantity = cartItems.find((item) => item._id === productId).quantity;
-        console.log(Quantity);
         if(Quantity > 1) {
-            decrease(productData);
+            await decrease(productData);
             console.log("decrease")
         } else {
-            removeFromCart(productData);
+            await removeFromCart(productData);
             console.log("remove")
         }
+        quantityOfProduct(true);
     }
+
+    const quantityOfProduct = async (bool) => {
+
+        let quantity = 0;
+
+        if(bool == true) {
+            quantity = await cartItems.find((item) => item._id === productId).quantity;
+            console.log(`nowa ilość produktów: ${quantity}`);
+        }
+        let value = parseInt(document.getElementById('quantityOfProduct').innerHTML);
+        console.log(`wartość outputu: ${value}`);
+
+        let output = document.getElementById('quantityOfProduct');
+        output.innerHTML = parseInt(quantity);
+        value = parseInt(document.getElementById('quantityOfProduct').innerHTML);
+        console.log(`Końcowa wartość outputu: ${value}`);
+
+    }
+
+    const Quantity = cartItems.find((item) => item._id === productId)?.quantity ?? 0;
 
     useEffect(() => {
         getProduct();
     });
     
     const getProduct = () => {
+        console.log("test");
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -75,12 +98,12 @@ function GetProductDetails(props) {
                     </div>
                     <div className='pg-right'>
                         <h1 className='price'>{productData.price + " zł"}</h1>
-                        <input className='quantity' type='number' id='quantity' defaultValue='1' />
                         <div>
                             <FiMinusCircle onClick={() => countInCart(productData)} className="minus-btn"/>
+
+                            <div id='quantityOfProduct'>{Quantity}</div>
+
                             <FiPlusCircle onClick={() => isInCart(productData)} className="plus-btn"/>
-                        
-                            <input type='button' onClick={() => isInCart(productData)} className="btn" value='Dodaj do koszyka' />
 
 		                </div> 
                     </div>
