@@ -7,7 +7,6 @@ import GetProduct from '../../../Components/Get-products/GetProductDetails';
 function ProductDetails()
 {
 	const { productId } = useParams();
-    //debugger;
 	const [setPosts] = useState([]);
 	useEffect(() => {
         axios
@@ -19,7 +18,7 @@ function ProductDetails()
             .catch((err) => {
             	console.log(err); 
             });
-	}, []);
+	});
 	return (
 		<div className="productSection">
 			<div className='productList'>

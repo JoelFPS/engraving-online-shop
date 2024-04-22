@@ -1,10 +1,6 @@
-import GetProductsInCart from "./GetProductsInCart";
-import Summary from "./Summary";
-
 import CartItem from "../../Components/Cart/CartItem";
 import { useContext } from "react";
 import CartContext from "../../Context/Cart/CartContext";
-import styled from "styled-components";
 import Checkout from "../../Components/Cart/Checkout";
 import { Link } from "react-router-dom";
 

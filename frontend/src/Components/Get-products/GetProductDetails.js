@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import { useContext } from 'react';
 import CartContext from '../../Context/Cart/CartContext';
 import "../../Styles/product.scss";
-import { useState, useEffect } from 'react';
 import { FiMinusCircle } from "react-icons/fi";
 import { FiPlusCircle } from "react-icons/fi";
 
@@ -10,60 +9,52 @@ function GetProductDetails(props) {
     const [productData, setProductData] = useState(null);
     const { productId } = props;
     
-    const { addToCart, increase, decrease, removeFromCart, cartItems, sumItems, itemCount } = useContext(CartContext);
+    const { addToCart, increase, decrease, removeFromCart, cartItems, itemCount } = useContext(CartContext);
 
-    const isInCart = async () => {
+    const modifyQuantity = async (type) => {
         const bool = !!cartItems.find((item) => item._id === productId);
-        console.log(bool)
+        let quantity = 0;
+        if(bool === true){
+            quantity = cartItems.find((item) => item._id === productId).quantity;
+        }
         console.log(`itemCount: ${itemCount}`);
-        if(bool == true) {
-            await increase(productData);
-            console.log("increase")
-            quantityOfProduct(true);
-        } else {
-            await addToCart(productData);
-            console.log("add")
-            quantityOfProduct(false);
+        if(type === "plus"){
+            if(bool === true) {
+                await increase(productData);
+                console.log("increase")
+                updateQuantity(quantity+1);
+            } else {
+                await addToCart(productData);
+                console.log("add")
+                updateQuantity(quantity+1);
+            }
+        } else if(type === "minus"){
+            if(quantity > 1){
+                await decrease(productData);
+                console.log("decrease")
+                updateQuantity(quantity-1);
+            } else if(quantity === 1){
+                await removeFromCart(productData);
+                console.log("remove")
+                updateQuantity(0);
+            } else if(quantity < 1){
+                updateQuantity(0);
+            }
         }
     };
 
-    const countInCart = async () => {
-        const Quantity = cartItems.find((item) => item._id === productId).quantity;
-        if(Quantity > 1) {
-            await decrease(productData);
-            console.log("decrease")
-        } else {
-            await removeFromCart(productData);
-            console.log("remove")
-        }
-        quantityOfProduct(true);
-    }
-
-    const quantityOfProduct = async (bool) => {
-
-        let quantity = 0;
-
-        if(bool == true) {
-            quantity = await cartItems.find((item) => item._id === productId).quantity;
-            console.log(`nowa ilość produktów: ${quantity}`);
-        }
-        let value = parseInt(document.getElementById('quantityOfProduct').innerHTML);
-        console.log(`wartość outputu: ${value}`);
-
+    const updateQuantity = async (quantity) => {
         let output = document.getElementById('quantityOfProduct');
-        output.innerHTML = parseInt(quantity);
-        value = parseInt(document.getElementById('quantityOfProduct').innerHTML);
-        console.log(`Końcowa wartość outputu: ${value}`);
-
+        output.innerHTML = quantity;
     }
 
     const Quantity = cartItems.find((item) => item._id === productId)?.quantity ?? 0;
-
+    
     useEffect(() => {
         getProduct();
     });
     
-    const getProduct = () => {
+    const getProduct = useCallback (async () => {
         console.log("test");
         const requestOptions = {
             method: 'GET',
@@ -77,7 +68,7 @@ function GetProductDetails(props) {
             .catch(error => {
                 console.error('Error fetching product:', error);
             });
-    };
+    },[]);
 
     return (
         <div className='product-get'>
@@ -99,11 +90,11 @@ function GetProductDetails(props) {
                     <div className='pg-right'>
                         <h1 className='price'>{productData.price + " zł"}</h1>
                         <div>
-                            <FiMinusCircle onClick={() => countInCart(productData)} className="minus-btn"/>
+                            <FiMinusCircle onClick={() => modifyQuantity("minus")} className="minus-btn"/>
 
                             <div id='quantityOfProduct'>{Quantity}</div>
 
-                            <FiPlusCircle onClick={() => isInCart(productData)} className="plus-btn"/>
+                            <FiPlusCircle onClick={() => modifyQuantity("plus")} className="plus-btn"/>
 
 		                </div> 
                     </div>

@@ -12,13 +12,14 @@ const CartItem = ({ product }) => {
 const { removeFromCart, increase, decrease } = useContext(CartContext);
 
 	return (
-		<Link to={"/"+product.category+"/"+product._id}><SingleCartItem>
+		<SingleCartItem>
+		<Link to={"/"+product.category+"/"+product._id}>
 		<CartImage src={product.category+"/"+product.src+".png"} alt={product.name} />
 		<div>
 			<h5>{product.name}</h5>
 			<p>{formatCurrency(product.price)}</p>
 		</div>
-
+		</Link>
 		{/* Buttons */}
 		<BtnContainer>
 			{product.quantity > 1 && (
@@ -37,7 +38,7 @@ const { removeFromCart, increase, decrease } = useContext(CartContext);
 
 		</BtnContainer>
 		
-		</SingleCartItem></Link>
+		</SingleCartItem>
 	);
 };
 
@@ -67,11 +68,6 @@ const BtnContainer = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-around;
-`;
-
-const Icon = styled.img`
-width: 1.6rem;
-height: auto;
 `;
 
 export default CartItem;
